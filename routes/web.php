@@ -28,7 +28,7 @@ Route::get('/signup', function () {
 });
 
 Route::get('/perfil', function () {
-    return view('cv');
+    return view('perfil');
 });
 
 Route::get('/redsocial', function () {

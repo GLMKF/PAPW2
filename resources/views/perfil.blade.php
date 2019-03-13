@@ -1,39 +1,32 @@
 <!DOCTYPE HTML>
 <html class="no-js" lang="en">
 <head>
-		<meta charset="utf-8">
-		<meta name="author" content="Sumon Rahman">
-		<meta name="description" content="">
-		<meta name="keywords" content="HTML,CSS,XML,JavaScript">
-		<meta http-equiv="x-ua-compatible" content="ie=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<!-- Title -->
-		<title>DevArt - Mi Perfil</title>
+    
+    <meta charset="utf-8">
+    <meta name="author" content="Sumon Rahman">
+    <meta name="description" content="">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title -->
+    <title>DevArt - Mi Perfil</title>
 	<!-- Place favicon.ico in the root directory -->
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
     <link rel="shortcut icon" type="image/ico" href="images/favicon.ico" />
-	<!-- Plugin-CSS -->
+    <!-- Project-Plugins-CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/linearicons.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
     <link rel="stylesheet" href="css/animate.css">
-    <!-- Main-Stylesheets -->
+    <!-- Project-Main-Stylesheets -->
 	<link rel="stylesheet" href="css/normalize.css">
-	
-	<!-- Font -->
-	
+	<!-- Window-Font -->
 	<link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700%7CAllura" rel="stylesheet">
-	
-	<!-- Stylesheets -->
-	
-	<link href="common-css/bootstrap.css" rel="stylesheet">
-	
+	<!-- Window-Stylesheets -->
 	<link href="common-css/ionicons.css" rel="stylesheet">
-	
 	<link href="common-css/fluidbox.min.css" rel="stylesheet">
-	
 	<link href="css/stylesCV.css" rel="stylesheet">
-	
 	<link href="css/responsiveCV.css" rel="stylesheet">
 	<script src="js/vendor/modernizr-2.8.3.min.js"></script>
 	
@@ -380,22 +373,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	
 	
 	<!-- SCIPTS -->
-	
-	<script src="common-js/jquery-3.2.1.min.js"></script>
-	
-	<script src="common-js/tether.min.js"></script>
-	
-	<script src="common-js/bootstrap.js"></script>
-	
-	<script src="common-js/isotope.pkgd.min.js"></script>
-	
-	<script src="common-js/jquery.waypoints.min.js"></script>
-	
-	<script src="common-js/progressbar.min.js"></script>
-	
-	<script src="common-js/jquery.fluidbox.min.js"></script>
-	
-	<script src="common-js/scripts.js"></script>
+
 
 	<!--Vendor-JS-->
     <script src="js/vendor/jquery-1.12.4.min.js"></script>
