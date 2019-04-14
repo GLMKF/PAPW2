@@ -372,6 +372,8 @@ input:-webkit-autofill:focus {
     text-align: center;
 }
 
+
+
 .mainmenu-area ul.nav.navbar-nav li a {
     color: #ffffff;
     padding: 10px 2px;
@@ -394,6 +396,77 @@ input:-webkit-autofill:focus {
 
 .mainmenu-area .navbar-brand img {
     height: 40px;
+}
+
+/*-- 5.5 Login dropdown --*/
+.dropdown{
+    float:right;
+    margin-right: 10%;
+}
+#login-dp{
+    min-width: 250px;
+    padding: 14px 14px 0;
+    overflow:hidden;
+    background-color:rgb(29, 112, 183, 0.8);
+}
+#login-dp .help-block{
+    font-size:14px    
+}
+#login-dp .bottom{
+    background-color:rgba(46, 172, 102, 0.9);
+    border-top:3px solid #ddd;
+    clear:both;
+    padding:14px;
+}
+#login-dp .social-buttons{
+    margin:12px 0    
+}
+#login-dp .social-buttons a{
+    width: 49%;
+}
+#login-dp .form-group {
+    margin-bottom: 10px;
+}
+.btn-fb{
+    color: #fff;
+    background-color:#3b5998;
+}
+.btn-fb:hover{
+    color: #fff;
+    background-color:#496ebc 
+}
+.btn-tw{
+    color: #fff;
+    background-color:#55acee;
+}
+.btn-tw:hover{
+    color: #fff;
+    background-color:#59b5fa;
+}
+.bottom, a {
+    color:rgba(117, 255, 186, 0.7);
+}
+.bottom, a:hover {
+    color:rgba(255, 255, 255, 0.7);
+}
+.bottom {
+    color:rgba(255, 255, 255, 0.7);
+}
+.col-md-12{
+    color:rgba(167, 220, 255, 0.7);
+}
+.checkbox, label, input{
+    color:rgba(167, 220, 255, 0.7);
+}
+@media(max-width:768px){
+    #login-dp{
+        background-color: inherit;
+        color: #fff;
+    }
+    #login-dp .bottom{
+        background-color: inherit;
+        border-top:0 none;
+    }
 }
 
 /*-- 6. Page-Title --*/

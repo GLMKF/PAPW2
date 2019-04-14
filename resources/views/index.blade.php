@@ -40,27 +40,87 @@
     <nav class="mainmenu-area" data-spy="affix" data-offset-top="200">
         <div class="container-fluid">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#primary_menu">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#"><img src="images/DEVART-Logo.gif" alt="Logo"></a>
             </div>
             <div class="collapse navbar-collapse" id="primary_menu">
+            <a class="navbar-brand" href="/"><img src="images/DEVART Logo.png" alt="Logo"></a>
+
                 <ul class="nav navbar-nav mainmenu">
-                    <li class="active"><a href="#home_page">Inicio</a></li>
+                    <li class="active"><a href="/">Pagina Principal</a></li>
                     <li><a href="#about_page">Nosotros</a></li>
                     <li><a href="#features_page">Flujo de trabajo</a></li>
                     <li><a href="#gallery_page">App</a></li>
                     <!--<li><a href="#price_page">Roles</a></li>-->
                     <li><a href="#questions_page">FAQ</a></li>
-                    <li><a href="socialnetwork.html">Red Social</a></li>
+                    <li><a href="/trends">Tendencias</a></li>
                     <li><a href="#contact_page">Contacto</a></li>
                 </ul>
-                <div class="right-button hidden-xs">
-                    <a href="#">Registrarse</a>
-                </div>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Acceder</b> <span class="caret"></span></a>
+			        <ul id="login-dp" class="dropdown-menu">
+                        <li>
+                            <div class="row">
+                                    <div class="col-md-12">
+                                        Accede via
+                                        <div class="social-buttons">
+                                            <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
+                                            <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
+                                        </div>
+                                        o
+                                        <form class="form" role="form" method="post" action="{{ route('login') }}" accept-charset="UTF-8" id="login-nav">
+                                            {{ csrf_field() }}
+                                            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                                                <div class="form-group">
+                                                    <label class="sr-only" for="exampleInputEmail2">Correo Electronico</label>
+                                                    <input type="email" class="form-control" name="email" id="exampleInputEmail2" placeholder="Email address" required>
+                                                </div>
+                                                @if ($errors->has('email'))
+                                                    <span class="help-block">
+                                                        <strong>{{ $errors->first('email') }}</strong>
+                                                    </span>
+                                                @endif
+                                            </div>
+                                            
+                                            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                                                <div class="form-group">
+                                                    <label class="sr-only" for="exampleInputPassword2">Contraseña</label>
+                                                    <input type="password" name="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
+                                                    <div class="help-block text-right"><a href="">Olvide la contraseña</a></div>
+                                                </div>
+                                                @if ($errors->has('password'))
+                                                    <span class="help-block">
+                                                        <strong>{{ $errors->first('password') }}</strong>
+                                                    </span>
+                                                @endif
+                                            </div>
+                                                <div class="form-group">
+                                                    <button type="submit" class="btn btn-primary btn-block">Iniciar Sesion</button>
+                                                </div>
+                                                <div class="form-group">
+                                                <div class="checkbox">
+                                                    <label>
+                                                    <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Recuerdame
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="bottom text-center">
+                                        ¿Eres nuevo? <a href="/signup"><b>Unete</b></a>
+                                    </div>
+                            </div>
+                        </li>
+			        </ul>
+                </li>
+        <ul class="nav navbar-nav navbar-right">
+        </ul>
+                <!-- <div class="right-button hidden-xs">
+                    <form action="/login">
+                        <input type="text" placeholder="Logeate" name="username">
+                        <input type="text" placeholder="Password" name="psw">
+                        <button type="submit">Acceder</button>
+                    </form>
+                    <a href="/signup">¿No tienes cuenta? Registrate</a>
+                </div> -->
             </div>
         </div>
     </nav>
@@ -79,10 +139,11 @@
                     <h1 class="wow fadeInUp" data-wow-delay="0.4s">Comienza tu portafolio ahora o busca gente para tu negocio.</h1>
                     <div class="space-20"></div>
                     <div class="desc wow fadeInUp" data-wow-delay="0.6s">
-                        <p>La red social que te permite crear un portafolio de todo tu contenido de trabajo facilitando la visualizacion de éste a personas que andan buscando talento.</p>
+                        <p>La red social que te permite crear un portafolio de todo tu contenido de trabajo facilitando la visualizacion
+                         de éste a personas que andan buscando talento.</p>
                     </div>
                     <div class="space-20"></div>
-                    <a href="#" class="bttn-white wow fadeInUp" data-wow-delay="0.8s"><i class="lnr lnr-download"></i>Download App</a>
+                    <a href="#" class="bttn-white wow fadeInUp" data-wow-delay="0.8s"><i class="lnr lnr-user"></i>¡Registrate ahora!</a>
                 </div>
             </div>
         </div>
@@ -94,13 +155,16 @@
             <div class="row">
                 <div class="col-xs-12 col-md-10 col-md-offset-1">
                     <div class="page-title text-center">
-                        <img src="images/DEVART-App-Logo.gif" alt="About Logo">
+                        <img src="images/DEVART-App-Logo.png" alt="About Logo">
                         <div class="space-20"></div>
                         <h5 class="title">Acerca de DevArt</h5>
                         <div class="space-30"></div>
-                        <h3 class="blue-color">Somos la herramienta que ajusta el contenido que creas por hobby o necesidad para que otros puedan verlo, organizarse en equipo y ayudar a emprender un negocio.</h3>
+                        <h3 class="blue-color">Somos la herramienta que ajusta el contenido que creas por hobby o necesidad para que 
+                        otros puedan verlo, organizarse en equipo y ayudar a emprender un negocio.</h3>
                         <div class="space-20"></div>
-                        <p>Nuestro compromiso es generar equipos de trabajo proporcionando una muestra del talento de cada usuario centralizado en su perfil de forma que se adapte a su contenido ya sea arte o programacion, todo esto a traves de un entorno amistoso en una red social que lo cubra acertadamente.</p>
+                        <p>Nuestro compromiso es generar equipos de trabajo proporcionando una muestra del talento de cada usuario 
+                        centralizado en su perfil de forma que se adapte a su contenido ya sea arte o programacion, todo esto a 
+                        traves de un entorno amistoso en una red social que lo cubra acertadamente.</p>
                     </div>
                 </div>
             </div>
@@ -118,10 +182,11 @@
                         <h3 class="dark-color wow fadeInUp" data-wow-delay="0.4s">Ser la red social de trabajo mas comoda de internet</h3>
                         <div class="space-20"></div>
                         <div class="desc wow fadeInUp" data-wow-delay="0.6s">
-                            <p>La idea de nuestro sitio es que te sientas tranquilo subiendo tu contenido proporcionando seguridad a tu proyecto si tu asi lo deseas o, si lo tuyo es compartir soluciones con los demas, hacer tus proyectos publicos.</p>
+                            <p>La idea de nuestro sitio es que te sientas tranquilo subiendo tu contenido proporcionando seguridad a tu
+                             proyecto si tu asi lo deseas o, si lo tuyo es compartir soluciones con los demas, hacer tus proyectos publicos.</p>
                         </div>
                         <div class="space-50"></div>
-                        <a href="#" class="bttn-default wow fadeInUp" data-wow-delay="0.8s">!Unete ya!</a>
+                        <a href="#" class="bttn-default wow fadeInUp" data-wow-delay="0.8s"><i class="lnr lnr-users"></i>!Unete ya!</a>
                     </div>
                 </div>
                 <div class="col-xs-12 col-md-6">
@@ -153,10 +218,11 @@
                         <h3 class="dark-color wow fadeInUp" data-wow-delay="0.4s">Comoda y facil forma de crecer</h3>
                         <div class="space-20"></div>
                         <div class="desc wow fadeInUp" data-wow-delay="0.6s">
-                            <p>En DevArt buscamos proporcionar las herramientas que necesitas para llegar a otro nivel de relaciones con los demas. !Por eso nos encargamos de brindarte un ambiente amistoso con gente como tu!</p>
+                            <p>En DevArt buscamos proporcionar las herramientas que necesitas para llegar a otro nivel de relaciones 
+                            con los demas. !Por eso nos encargamos de brindarte un ambiente amistoso con gente como tu!</p>
                         </div>
                         <div class="space-50"></div>
-                        <a href="#" class="bttn-default wow fadeInUp" data-wow-delay="0.8s">Learn More</a>
+                        <a href="#" class="bttn-default wow fadeInUp" data-wow-delay="0.8s"><i class="lnr lnr-home"></i>Informate sobre nosotros</a>
                     </div>
                 </div>
             </div>
@@ -337,10 +403,11 @@
                     </div>
                     <div class="space-20"></div>
                     <div class="desc wow fadeInUp" data-wow-delay="0.6s">
-                        <p>La aplicacion esta en construccion pero eso no limita el desempeño ya que desde el navegador de tu smartphone puedes acceder y es totalmente comodo.</p>
+                        <p>La aplicacion esta en construccion pero eso no limita el desempeño ya que desde el navegador de tu smartphone puedes acceder
+                         y es totalmente comodo.</p>
                     </div>
                     <div class="space-50"></div>
-                    <a href="#" class="bttn-default wow fadeInUp" data-wow-delay="0.8s">Learn More</a>
+                    <a class="bttn-default wow fadeInUp" data-wow-delay="0.8s">Esperalo</a>
                 </div>
             </div>
         </div>
@@ -358,10 +425,11 @@
                     </div>
                     <div class="space-20"></div>
                     <div class="desc wow fadeInUp" data-wow-delay="0.6s">
-                        <p>El sitio fue diseñado para que estes comodo durante tu estadia en los grupos que en la red social te puedes encontrar y ser lo suficientemente claro para todos.</p>
+                        <p>El sitio fue diseñado para que estes comodo durante tu estadia en los grupos que en la red social te puedes encontrar
+                         y ser lo suficientemente claro para todos.</p>
                     </div>
                     <div class="space-50"></div>
-                    <a href="#" class="bttn-default wow fadeInUp" data-wow-delay="0.8s">Learn More</a>
+                    <a href="#" class="bttn-default wow fadeInUp" data-wow-delay="0.8s"><i class="lnr lnr-eye"></i>Consulta nuestras bases</a>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1">
                     <div class="space-60 hidden visible-xs"></div>
@@ -568,11 +636,11 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2">
                     <div class="subscribe-form text-center">
-                        <h3 class="blue-color">Subscribe for More Features</h3>
+                        <h3 class="blue-color">Subscribete a nuestro boletin diario</h3>
                         <div class="space-20"></div>
                         <form id="mc-form">
-                            <input type="email" class="control" placeholder="Enter your email" required="required" id="mc-email">
-                            <button class="bttn-white active" type="submit"><span class="lnr lnr-location"></span> Subscribe</button>
+                            <input type="email" class="control" placeholder="Introduce tu correo" required="required" id="mc-email">
+                            <button class="bttn-white active" type="submit"><span class="lnr lnr-location"></span> Subscribir</button>
                             <label class="mt10" for="mc-email"></label>
                         </form>
                     </div>
@@ -588,8 +656,8 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="page-title text-center">
-                            <h5 class="title">Contact US</h5>
-                            <h3 class="dark-color">Find Us By Bellow Details</h3>
+                            <h5 class="title">Contacto</h5>
+                            <h3 class="dark-color">- Contactanos -</h3>
                             <div class="space-60"></div>
                         </div>
                     </div>
@@ -600,7 +668,7 @@
                             <div class="box-icon">
                                 <span class="lnr lnr-map-marker"></span>
                             </div>
-                            <p>8-54 Paya Lebar Square <br /> 60 Paya Lebar Roa SG, Singapore</p>
+                            <p>Av. Vicente Guerrero 2004 <br /> Monterrey N.L. Mexico </p>
                         </div>
                         <div class="space-30 hidden visible-xs"></div>
                     </div>
@@ -609,7 +677,7 @@
                             <div class="box-icon">
                                 <span class="lnr lnr-phone-handset"></span>
                             </div>
-                            <p>+65 93901336 <br /> +65 93901337</p>
+                            <p>+52 8111831493</p>
                         </div>
                         <div class="space-30 hidden visible-xs"></div>
                     </div>
@@ -618,7 +686,7 @@
                             <div class="box-icon">
                                 <span class="lnr lnr-envelope"></span>
                             </div>
-                            <p>yourmail@gmail.com <br /> backpiper.com@gmail.com
+                            <p>gamalama050496@gmail.com <br /> gamalama050496@hotmail.com
                             </p>
                         </div>
                     </div>
@@ -638,12 +706,11 @@
                     <div class="col-xs-12 col-md-7">
                         <div class="footer-menu">
                             <ul>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Services</a></li>
-                                <li><a href="#">Features</a></li>
-                                <li><a href="#">Pricing</a></li>
-                                <li><a href="#">Testimonial</a></li>
-                                <li><a href="#">Contacts</a></li>
+                                <li><a href="#">Acerca de</a></li>
+                                <li><a href="#">Servicios</a></li>
+                                <li><a href="#">Caracteristicas</a></li>
+                                <li><a href="#">Costos</a></li>
+                                <li><a href="#">Asociados</a></li>
                             </ul>
                         </div>
                     </div>

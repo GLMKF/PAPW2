@@ -44,22 +44,23 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#"><img src="images/DEVART-Logo.gif" alt="Logo"></a>
+                <a class="navbar-brand" href="/"><img src="images/DEVART Logo.png" alt="Logo"></a>
             </div>
             <div class="collapse navbar-collapse" id="primary_menu">
                 <ul class="nav navbar-nav mainmenu">
-                    <li class="active"><a href="#home_page">Inicio</a></li>
-                    <li><a href="#about_page">Nosotros</a></li>
-                    <li><a href="#features_page">Flujo de trabajo</a></li>
-                    <li><a href="#gallery_page">App</a></li>
-                    <!--<li><a href="#price_page">Roles</a></li>-->
-                    <li><a href="#questions_page">FAQ</a></li>
-                    <li><a href="socialnetwork.html">Red Social</a></li>
-                    <li><a href="#contact_page">Contacto</a></li>
+                    <li><a href="/profile">Mi perfil</a></li>
+                    <li><a href="#about_page">Mis Equipos</a></li> 
+                    <li>
+                        <a href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                            Cerrar Sesion
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    </li>
                 </ul>
-                <div class="right-button hidden-xs">
-                    <a href="#">Registrarse</a>
-                </div>
             </div>
         </div>
     </nav>

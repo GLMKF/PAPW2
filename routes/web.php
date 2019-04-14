@@ -10,7 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/test', function () {
     return view('test');
 });
@@ -20,17 +19,21 @@ Route::get('/', function () {
 });
 
 Route::get('/login', function () {
-    return view('login');
+    return view('logeo');
 });
 
 Route::get('/signup', function () {
-    return view('signup');
+    return view('registrarse');
 });
 
-Route::get('/perfil', function () {
+Route::get('/profile', function () {
     return view('perfil');
 });
 
-Route::get('/redsocial', function () {
-    return view('socialnetwork');
+Route::get('/trends', function () {
+    return view('redsocial');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
