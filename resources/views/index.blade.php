@@ -61,11 +61,11 @@
                             <div class="row">
                                     <div class="col-md-12">
                                         Accede via
-                                        <div class="social-buttons">
+                                        <!-- <div class="social-buttons">
                                             <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
                                             <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
                                         </div>
-                                        o
+                                        o -->
                                         <form class="form" role="form" method="post" action="{{ route('login') }}" accept-charset="UTF-8" id="login-nav">
                                             {{ csrf_field() }}
                                             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
@@ -587,42 +587,42 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-6">
                     <div class="toggole-boxs">
-                        <h3>Faq first question goes here? </h3>
+                        <h3>¿Quienes somos?</h3>
                         <div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                            <p>Somos una entidad en internet que facilita tu portafolio y tus esfuerzos de encontrar gente como tu para trabajos con el mismo giro que el tuyo</p>
                         </div>
-                        <h3>About freewuent question goes here? </h3>
+                        <h3>¿Como genero mi portafolio?</h3>
                         <div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                            <p>La red social se encarga de permitirte compartir codigo entre tus listas de amigos permitiendo mostrar tus destrezas en las areas que dominas o incursionas.</p>
                         </div>
-                        <h3>Why more question goes here? </h3>
+                        <h3>¿La pagina permite ver aportes de mi portafolio en linea?</h3>
                         <div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                            <p>Si, tu portafolio puede ser compartido con nuestra pagina de inicio y tendencias siempre y cuando tengas habilitada la opcion en tu cuenta, de otra forma el material que aportes solo sera visible a tu lista de amigos y equipos de trabajo.</p>
                         </div>
-                        <h3>What question goes here? </h3>
+                        <h3>¿Solo puedo ser artista o desarrollador?</h3>
                         <div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                            <p>Tu elijes que ser, lo ideal seria destacar tu mejor lado ya que puedes ser buscado para un trabajo en cualquier momento pero el objetivo de la pagina es eliminar los foros para dar paso a una red de personas que te ayude a mejorar o realicen cosas juntos.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-6">
                     <div class="space-20 hidden visible-xs"></div>
                     <div class="toggole-boxs">
-                        <h3>Faq second question goes here? </h3>
+                        <h3>¿Quien puede ver mi portafolio?</h3>
                         <div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                            <p>Existen 2 modalidades, publica y privada, dependiendo de tu giro puedes escoger cualquiera de las 2.</p>
                         </div>
-                        <h3>Third faq question goes here? </h3>
+                        <h3>¿Existen empresar reclutadoras?</h3>
                         <div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                            <p>Si existen y son las principales cuentas que solicitan perfiles de usuarios para posibles reclutaciones, puedes permitir o denegar que las empresas soliciten tu apoyo.</p>
                         </div>
-                        <h3>Why more question goes here? </h3>
+                        <h3>¿Como funcionan los equipos de trabajo?</h3>
                         <div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                            <p>Cada equipo de trabajo puede relacionarse acorde a tu lista de amigos y entre tus amigos puedes crear un equipo de trabajo commo si se tratara de un grupo con descripcion y giro.</p>
                         </div>
-                        <h3>Seventh frequent question here? </h3>
+                        <h3>¿Existe algun costo en algun tipo de cuenta en especifico?</h3>
                         <div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                            <p>Por el momento no existe costo por ninguna de las diferentes cuentas que se pueden crear, por lo que te puedes registrar sin costo.</p>
                         </div>
                     </div>
                 </div>

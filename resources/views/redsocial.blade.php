@@ -24,6 +24,9 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/responsive.css">
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    
+
+        
     <!--[if lt IE 9]>
         <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -31,10 +34,9 @@
 </head>
 
 <body data-spy="scroll" data-target=".mainmenu-area">
-    <!-- Preloader-content -->
-    <div class="preloader">
-        <span><i class="lnr lnr-sun"></i></span>
-    </div>
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <!-- MainMenu-Area -->
     <nav class="mainmenu-area" data-spy="affix" data-offset-top="200">
         <div class="container-fluid">
@@ -304,6 +306,7 @@
         <!-- Footer-Bootom-End -->
     </footer>
     <!-- Footer-Area-End -->
+
     <!--Vendor-JS-->
     <script src="js/vendor/jquery-1.12.4.min.js"></script>
     <script src="js/vendor/jquery-ui.js"></script>
@@ -317,6 +320,26 @@
     <script src="js/wow.min.js"></script>
     <!--Main-active-JS-->
     <script src="js/main.js"></script>
+    <!-- Preloader-content -->
+    <div class="preloader">
+        <span><i class="lnr lnr-sun"></i></span>
+    </div>
+
+    <!-- Bootstrap 4.0 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+    <div id="app" class="container-fluid" style="position: fixed;
+            bottom: 0px;
+            right: 50px;
+            z-index:1;
+            color:#000;">
+            @if (!Auth::guest())
+                <list-chat :me="{{Auth::user()->id}}" ></list-chat >
+            @endif
+        </div>
+    <script src="{{ asset('js/app.js') }}"></script>
+
 </body>
+
 
 </html>

@@ -444,13 +444,13 @@ input:-webkit-autofill:focus {
     background-color:#59b5fa;
 }
 .bottom, a {
-    color:rgba(117, 255, 186, 0.7);
+    color:rgba(14, 241, 128, 0.7);
 }
 .bottom, a:hover {
-    color:rgba(255, 255, 255, 0.7);
+    color:rgba(44, 9, 243, 0.7);
 }
 .bottom {
-    color:rgba(255, 255, 255, 0.7);
+    color:rgba(44, 9, 243, 0.7);
 }
 .col-md-12{
     color:rgba(167, 220, 255, 0.7);

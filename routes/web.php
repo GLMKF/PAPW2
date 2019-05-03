@@ -37,3 +37,11 @@ Route::get('/trends', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('/usersAll', 'ChatController@allUser');
+
+Route::post('/send', 'ChatController@SendMessage');
+
+Route::post('/messageLast', 'ChatController@LastMessage');
+
+Route::post('/listenerNotify', 'ChatController@ListenerNotify');
