@@ -1,5 +1,5 @@
 <template>
-   <ul id="chat-app" class="d-flex justify-content-end m-0 p-0" style="list-style-type: none;">
+   <ul id="chat-app" class="chat-flotante" style="list-style-type: none; padding:0em;">
         
         <ChatUser  
         v-for='(user, index) in users' 
@@ -7,29 +7,29 @@
         :childNumber="index+1" 
         v-on:removeChild="removeChild" :user="user" :me="me"/>
         
-        <li class="ml-3 dp-flex align-self-end">
+        <li class="recuadro-chat" style="width:200px;">
             <div v-if="!isHidden"
-            class="card bg-secondary card-size chat-option m-0 p-0"
-            v-on:click="isHidden = true" style="height:30px; width:150px;">
+            class="custom-card-hide"
+            v-on:click="isHidden = true" style="height:30px; width:200px;">
                 <label class="text-white" style="font-size:14px; color:#fff; margin:auto;padding:0;"><b>Chat</b></label>
             </div>
             <div 
             v-else
-            class="card bg-secondary card-size">
-                <div class="card-header m-0 p-0 ml-2"><b class="text-justify" style="font-size:14px; color:#fff;">Chat</b></div>
-                <div class="card-body container-fluid m-0 p-3" style="height:400px; overflow-y: auto;">
+            class="custom-card-show-general">
+                <div class="custom-card-show-title"><b class="text-justify" style="font-size:14px; color:#fff;">Chat</b></div>
+                <div class="custom-card-fluid" style="height:400px; overflow-y: auto;">
                     <div class="row item-user" 
                         v-for="user in list_users"
                         v-if="search_user(user.name)"
-                        v-on:click="isHidden = show_chat(user)">
-                        <div class="dp-block" style="width:190px;">
+                        v-on:click="isHidden = show_chat(user)" style="width:107%;">
+                        <div class="dp-block" style="width:180px;">
                             <b class="text-justify">{{user.name}}</b>
                         </div>
                     </div>
                 </div>
                 <div class="card-footer text-muted">
-                    <div class="row">
-                        <input v-model="bowser_user" class="form-control" type="text" name="buscador" placeholder="Buscar..."/>
+                    <div class="row" style="padding-left:15px;">
+                        <input v-model="bowser_user" class="form-control" type="text" name="buscador" placeholder="Buscar..." style="width:200px;"/>
                     </div>
                 </div>
             </div>
@@ -132,6 +132,42 @@ import ChatUser from './ChatUser.vue'
 
 
 <style>
+    .chat-flotante{
+        background: rgba(59, 70, 168, 0.9);
+        border-style: hidden;
+    }
+    label{
+        cursor: pointer;
+    }
+    .custom-card-hide{
+        text-align: center;
+        background: rgba(46, 200, 102, 0.6);
+        border-style: hidden;
+        border-radius: 6em;
+    }
+    .custom-card-show-general{
+        text-align: center;
+        background: rgba(46, 102, 200, 0.9);
+        border-style: hidden;
+    }
+    .custom-card-show-title{
+        text-align: center;
+        background: forestgreen;
+        border-style: hidden;
+    }
+    .custom-card-show-fluid{
+        text-align: center;
+        background: darkseagreen;
+        border-style: hidden;
+        border-radius: 6em;
+    }
+    .recuadro-chat{
+        height: 100%;
+        width: 100%;
+    }
+    .dp-block{
+        width:100%;
+    }
     .card-size {
         width: 200px;
     }

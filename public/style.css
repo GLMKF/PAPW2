@@ -1403,3 +1403,9 @@ input:-webkit-autofill:focus {
 .form-double .box.last {
     float: right;
 }
+
+/* Chat */
+
+.chat{
+    background: rgba(59, 70, 168, 0.9);
+}

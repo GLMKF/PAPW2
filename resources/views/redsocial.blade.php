@@ -326,16 +326,17 @@
     </div>
 
     <!-- Bootstrap 4.0 -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script> -->
 
-    <div id="app" class="container-fluid" style="position: fixed;
-            bottom: 0px;
-            right: 50px;
+    <div id="app" class="chat" style="position: fixed;
+            bottom: 0em;
+            right: 5em;
             z-index:1;
             color:#000;">
-            @if (!Auth::guest())
+            <!-- @if (!Auth::guest()) -->
                 <list-chat :me="{{Auth::user()->id}}" ></list-chat >
-            @endif
+            <!-- @endif -->
         </div>
     <script src="{{ asset('js/app.js') }}"></script>
 

@@ -45051,7 +45051,7 @@ exports = module.exports = __webpack_require__(9)(false);
 
 
 // module
-exports.push([module.i, "\n.card-size {\n    width: 200px;\n}\n.item-user {\n    background:#212529;\n    color:#fff;\n}\n.item-user div {\n    font-size: 20px;\n    margin:5px;\n}\n.item-user:hover {\n    background: #c0caca;\n    color:#000;\n    cursor: pointer;\n}\n.chat-option:hover {\n     cursor: pointer;\n}\n", ""]);
+exports.push([module.i, "\n.chat-flotante{\n    background: rgba(59, 70, 168, 0.9);\n    border-style: hidden;\n}\nlabel{\n    cursor: pointer;\n}\n.custom-card-hide{\n    text-align: center;\n    background: rgba(46, 200, 102, 0.6);\n    border-style: hidden;\n    border-radius: 6em;\n}\n.custom-card-show-general{\n    text-align: center;\n    background: rgba(46, 102, 200, 0.9);\n    border-style: hidden;\n}\n.custom-card-show-title{\n    text-align: center;\n    background: forestgreen;\n    border-style: hidden;\n}\n.custom-card-show-fluid{\n    text-align: center;\n    background: darkseagreen;\n    border-style: hidden;\n    border-radius: 6em;\n}\n.recuadro-chat{\n    height: 100%;\n    width: 100%;\n}\n.dp-block{\n    width:100%;\n}\n.card-size {\n    width: 200px;\n}\n.item-user {\n    background:#212529;\n    color:#fff;\n}\n.item-user div {\n    font-size: 20px;\n    margin:5px;\n}\n.item-user:hover {\n    background: #c0caca;\n    color:#000;\n    cursor: pointer;\n}\n.chat-option:hover {\n     cursor: pointer;\n}\n", ""]);
 
 // exports
 
@@ -46499,8 +46499,8 @@ var render = function() {
   return _c(
     "ul",
     {
-      staticClass: "d-flex justify-content-end m-0 p-0",
-      staticStyle: { "list-style-type": "none" },
+      staticClass: "chat-flotante",
+      staticStyle: { "list-style-type": "none", padding: "0em" },
       attrs: { id: "chat-app" }
     },
     [
@@ -46512,93 +46512,106 @@ var render = function() {
         })
       }),
       _vm._v(" "),
-      _c("li", { staticClass: "ml-3 dp-flex align-self-end" }, [
-        !_vm.isHidden
-          ? _c(
-              "div",
-              {
-                staticClass: "card bg-secondary card-size chat-option m-0 p-0",
-                staticStyle: { height: "30px", width: "150px" },
-                on: {
-                  click: function($event) {
-                    _vm.isHidden = true
-                  }
-                }
-              },
-              [_vm._m(0)]
-            )
-          : _c("div", { staticClass: "card bg-secondary card-size" }, [
-              _vm._m(1),
-              _vm._v(" "),
-              _c(
+      _c(
+        "li",
+        { staticClass: "recuadro-chat", staticStyle: { width: "200px" } },
+        [
+          !_vm.isHidden
+            ? _c(
                 "div",
                 {
-                  staticClass: "card-body container-fluid m-0 p-3",
-                  staticStyle: { height: "400px", "overflow-y": "auto" }
-                },
-                _vm._l(_vm.list_users, function(user) {
-                  return _vm.search_user(user.name)
-                    ? _c(
-                        "div",
-                        {
-                          staticClass: "row item-user",
-                          on: {
-                            click: function($event) {
-                              _vm.isHidden = _vm.show_chat(user)
-                            }
-                          }
-                        },
-                        [
-                          _c(
-                            "div",
-                            {
-                              staticClass: "dp-block",
-                              staticStyle: { width: "190px" }
-                            },
-                            [
-                              _c("b", { staticClass: "text-justify" }, [
-                                _vm._v(_vm._s(user.name))
-                              ])
-                            ]
-                          )
-                        ]
-                      )
-                    : _vm._e()
-                }),
-                0
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-footer text-muted" }, [
-                _c("div", { staticClass: "row" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.bowser_user,
-                        expression: "bowser_user"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "text",
-                      name: "buscador",
-                      placeholder: "Buscar..."
-                    },
-                    domProps: { value: _vm.bowser_user },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.bowser_user = $event.target.value
-                      }
+                  staticClass: "custom-card-hide",
+                  staticStyle: { height: "30px", width: "200px" },
+                  on: {
+                    click: function($event) {
+                      _vm.isHidden = true
                     }
-                  })
+                  }
+                },
+                [_vm._m(0)]
+              )
+            : _c("div", { staticClass: "custom-card-show-general" }, [
+                _vm._m(1),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "custom-card-fluid",
+                    staticStyle: { height: "400px", "overflow-y": "auto" }
+                  },
+                  _vm._l(_vm.list_users, function(user) {
+                    return _vm.search_user(user.name)
+                      ? _c(
+                          "div",
+                          {
+                            staticClass: "row item-user",
+                            staticStyle: { width: "107%" },
+                            on: {
+                              click: function($event) {
+                                _vm.isHidden = _vm.show_chat(user)
+                              }
+                            }
+                          },
+                          [
+                            _c(
+                              "div",
+                              {
+                                staticClass: "dp-block",
+                                staticStyle: { width: "180px" }
+                              },
+                              [
+                                _c("b", { staticClass: "text-justify" }, [
+                                  _vm._v(_vm._s(user.name))
+                                ])
+                              ]
+                            )
+                          ]
+                        )
+                      : _vm._e()
+                  }),
+                  0
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-footer text-muted" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "row",
+                      staticStyle: { "padding-left": "15px" }
+                    },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.bowser_user,
+                            expression: "bowser_user"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        staticStyle: { width: "200px" },
+                        attrs: {
+                          type: "text",
+                          name: "buscador",
+                          placeholder: "Buscar..."
+                        },
+                        domProps: { value: _vm.bowser_user },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.bowser_user = $event.target.value
+                          }
+                        }
+                      })
+                    ]
+                  )
                 ])
               ])
-            ])
-      ])
+        ]
+      )
     ],
     2
   )
@@ -46626,7 +46639,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header m-0 p-0 ml-2" }, [
+    return _c("div", { staticClass: "custom-card-show-title" }, [
       _c(
         "b",
         {
