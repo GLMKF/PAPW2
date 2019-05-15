@@ -18,25 +18,26 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/login', function () {
-    return view('logeo');
-});
-
 Route::get('/signup', function () {
     return view('registrarse');
 });
 
-Route::get('/profile', function () {
-    return view('perfil');
-});
+// OLD KIND OF CALLS TO VIEWS
+// Route::get('/log_in', function () {
+//     return view('logeo');
+// });
 
-Route::get('/trends', function () {
-    return view('redsocial');
-});
+// Route::get('/profile', function () {
+//     return view('perfil');
+// });
 
-Auth::routes();
+// Route::get('/trends', function () {
+//     return view('redsocial');
+// });
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+
+// Route::get('/home', 'TemplateLaravelHomeController@index')->name('TemplateLaravelhome');
 
 Route::post('/usersAll', 'ChatController@allUser');
 
@@ -45,3 +46,24 @@ Route::post('/send', 'ChatController@SendMessage');
 Route::post('/messageLast', 'ChatController@LastMessage');
 
 Route::post('/listenerNotify', 'ChatController@ListenerNotify');
+
+//Autenticacion y diferenciacion de usuarios
+
+Route::get('/login', 'AdminController@getLogin');
+Route::post('/login', 'AdminController@postLogin');
+Route::post('/signup', 'AdminController@postSignup');
+
+Route::group( ['middleware' => 'auth' ], function(){
+    
+    // NEW KIND OF CALLS FOR VIEWS... STYLIZED!!!
+    Route::post('/logout', 'AdminController@getLogout');
+    Route::get('/profile', 'AdminController@getProfile');
+    Route::get('dataUser', function () {
+
+        $dataUser = DB::table('users')->get();
+    
+        return view('perfil', ['dataUser' => $dataUser]);
+    });
+    Route::get('/trends', 'AdminController@getTrends');
+    
+});

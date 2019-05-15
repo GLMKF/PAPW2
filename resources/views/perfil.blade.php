@@ -52,12 +52,12 @@
                     <li><a href="/trends">Inicio</a></li>
                     <li><a href="/profile">Mi Perfil</a></li>
                     <li>
-                        <a href="{{ route('logout') }}"
+                        <a href="/logout"
                             onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
                             Cerrar Sesion
                         </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        <form id="logout-form" action="/logout" method="POST" style="display: none;">
                             {{ csrf_field() }}
                         </form>
                     </li>
@@ -150,6 +150,15 @@
 						<h6 class="font-lite-black"><b>PROFESSIONAL PATH</b></h6>
 					</div>
 				</div><!-- col-sm-3 -->
+				@foreach($dataUser as $key => $data)
+					<tr>    
+					<th>{{$data->id}}</th>
+					<th>{{$data->name}}</th>
+					<th>{{$data->email}}</th>
+					<th>{{$data->typeUser}}</th>
+					<th>{{$data->speciality}}</th>                 
+					</tr>
+				@endforeach
 				<div class="col-sm-12 col-md-9">
 					<p class="margin-b-50">Duis non volutpat arcu, eu mollis tellus. Sed finibus aliquam neque 
 					sit amet sodales. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 

@@ -66,16 +66,16 @@
                                             <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
                                         </div>
                                         o -->
-                                        <form class="form" role="form" method="post" action="{{ route('login') }}" accept-charset="UTF-8" id="login-nav">
+                                        <form class="form" role="form" method="post" action="/login" accept-charset="UTF-8" id="login-nav">
                                             {{ csrf_field() }}
-                                            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                                            <div class="form-group">
                                                 <div class="form-group">
                                                     <label class="sr-only" for="exampleInputEmail2">Correo Electronico</label>
                                                     <input type="email" class="form-control" name="email" id="exampleInputEmail2" placeholder="Email address" required>
                                                 </div>
-                                                @if ($errors->has('email'))
-                                                    <span class="help-block">
-                                                        <strong>{{ $errors->first('email') }}</strong>
+                                                @if ($errors->any())
+                                                    <span class="help-block" >
+                                                        <strong class="text-danger">{{ $errors->first() }}</strong>
                                                     </span>
                                                 @endif
                                             </div>
@@ -86,9 +86,9 @@
                                                     <input type="password" name="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
                                                     <div class="help-block text-right"><a href="">Olvide la contraseña</a></div>
                                                 </div>
-                                                @if ($errors->has('password'))
+                                                @if ($errors->any())
                                                     <span class="help-block">
-                                                        <strong>{{ $errors->first('password') }}</strong>
+                                                        <!-- <strong>{{ $errors->first('password') }}</strong> -->
                                                     </span>
                                                 @endif
                                             </div>
