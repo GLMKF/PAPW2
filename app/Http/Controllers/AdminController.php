@@ -136,12 +136,12 @@ class AdminController extends Controller
     /**
      * Obtain ProfileEdit view.
      */
-    // public function getProfiledit()
-    // {
-    //     $dataUser = DB::table('users')->get();
+    public function getProfiledit()
+    {
+        $dataUser = DB::table('users')->get();
     
-    //     return view('perfiledit', ['dataUser' => $dataUser]);
-    // }
+        return view('perfiledit', ['dataUser' => $dataUser]);
+    }
 
     /**
      * Obtain Trends view.

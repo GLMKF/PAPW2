@@ -69,15 +69,19 @@
 	<!-- intro-section -->
 	<section class="intro-section">
 		<div class="container">
-		
+		<form method="post" action="/editprofilefirst" role="form">
+			@foreach($dataUser as $key => $data)
 			<div class="heading-wrapper">
 				<div class="row">
 					<div class="col-sm-6 col-md-6 col-lg-4">
 						<div class="info">
 							<i class="icon ion-ios-location-outline"></i>
 							<div class="right-area">
-								<h5>3008 Sarah Drive</h5>
-								<h5>Franklin,LA 70538</h5>
+							<!-- Ubicacion -->
+								<input class="text" type="text" name="city_cp" value="{{ old('adress') }}" placeholder="Ciudad y C.P.">
+								<input class="text" type="text" name="country" value="{{ old('adressInfo') }}" placeholder="Municipio y Estado">
+								<!-- <h5>3008 Sarah Drive</h5>
+								<h5>Franklin,LA 70538</h5> -->
 							</div><!-- right-area -->
 						</div><!-- info -->
 					</div><!-- col-sm-4 -->
@@ -86,8 +90,11 @@
 						<div class="info">
 							<i class="icon ion-ios-telephone-outline"></i>
 							<div class="right-area">
-								<h5>337-4139538</h5>
-								<h6>MIN - FRI,8AM - 7PM</h6>
+							<!-- Telefono -->
+								<input class="text" type="nunmber" name="cellphone" value="{{ old('cellphone') }}" placeholder="Telefono" pattern="/d*">
+								<input class="text" type="text" name="shedule" value="{{ old('cellphoneInfo') }}" placeholder="Horarios de atencion">
+								<!-- <h5>337-4139538</h5>
+								<h6>MIN - FRI,8AM - 7PM</h6> -->
 							</div><!-- right-area -->
 						</div><!-- info -->
 					</div><!-- col-sm-4 -->
@@ -96,8 +103,11 @@
 						<div class="info">
 							<i class="icon ion-ios-chatboxes-outline"></i>
 							<div class="right-area">
-								<h5>contact@colorlib.com</h5>
-								<h6>REPLY IN 24 HOURS</h6>
+							<!-- Correo -->
+								<!-- <input class="text" type="text" name="email" value="{{ old('email') }}" placeholder="{{$data->email}}"> -->
+								<h5>{{$data->email}}</h5>
+								<input class="text" type="text" name="reply" value="{{ old('reply') }}" placeholder="Respondo en 24 horas">
+								<!-- <h6>REPLY IN 24 HOURS</h6> -->
 							</div><!-- right-area -->
 						</div><!-- info -->
 					</div><!-- col-sm-4 -->
@@ -114,26 +124,33 @@
 					</div><!-- col-sm-8 -->
 					
 					<div class="col-sm-10 col-md-5 col-lg-6">	
-						@foreach($dataUser as $key => $data)
+						
 							<h2><b>{{$data->name}}</b></h2>
-							<h4 class="font-yellow">Key Account Manager</h4>
+								<input class="text" type="text" name="position" value="{{ old('position') }}" placeholder="Puesto que desempeño (Ing, Lic, etc)">
+							<!-- <h4 class="font-yellow">Key Account Manager</h4> -->
 							<ul class="information margin-tb-30">
-								<li><b class="font-yellow">BORN</b> : August 25, 1987</li>
+								<li><b class="font-yellow">FECHA DE NACIMIENTO</b> :  <input class="text" type="date" name="birthdate" value="{{ old('birthdate') }}" placeholder="Date" required="" onfocus="(this.type='date')"></li>
 								<li><b class="font-yellow">EMAIL</b> : {{$data->email}}</li>
-								<li><b class="font-yellow">MARITAL STATUS</b> : Married</li>
+								<li><b class="font-yellow">SITUACION MARITAL</b> : <input class="text" type="text" name="statusmarital" value="{{ old('statusmarital') }}" placeholder="Casado(a), soltero(a), viudo(a), etc"></li>
 							</ul>
-						@endforeach	
 							<ul class="social-icons">
 								<li><a href="#"><i class="ion-social-pinterest"></i></a></li>
 								<li><a href="#"><i class="ion-social-linkedin"></i></a></li>
 								<li><a href="#"><i class="ion-social-instagram"></i></a></li>
 								<li><a href="#"><i class="ion-social-facebook"></i></a></li>
 								<li><a href="#"><i class="ion-social-twitter"></i></a></li>
+								<div id="Edit_SN">
+									<input style="width:350px; display: block;" class="text" type="text" name="urlPinterest" value="{{ old('urlPinterest') }}" placeholder="Coloca el link directo a tu perfil Pinterest"></b>
+									<input style="width:350px; display: block;" class="text" type="text" name="urlLinkedin" value="{{ old('urlLinkedin') }}" placeholder="Coloca el link directo a tu perfil LinkedIn"></b>
+									<input style="width:350px; display: block;" class="text" type="text" name="urlInstagram" value="{{ old('urlInstagram') }}" placeholder="Coloca el link directo a tu perfil Instagram"></b>
+									<input style="width:350px; display: block;" class="text" type="text" name="urlFacebook" value="{{ old('urlFacebook') }}" placeholder="Coloca el link directo a tu perfil Facebook"></b>
+									<input style="width:350px; display: block;" class="text" type="text" name="urlTwitter" value="{{ old('urlTwitter') }}" placeholder="Coloca el link directo a tu perfil Twitter"></b>
+								</div>
 							</ul>
 					</div><!-- col-sm-8 -->
 					
 					<div class="col-sm-10 col-md-3 col-lg-3">
-						<a class="downlad-btn" href="#">Download CV</a>
+						<!-- <a class="downlad-btn" href="#">Download CV</a> -->
 					</div><!-- col-lg-2 -->
 			
 				</div><!-- row -->
@@ -148,20 +165,15 @@
 			<div class="row">
 				<div class="col-sm-12 col-md-3">
 					<div class="heading">
-						<h3><b>About me</b></h3>
-						<h6 class="font-lite-black"><b>PROFESSIONAL PATH</b></h6>
+						<h3><b>Acerca de mi</b></h3>
+						<h6 class="font-lite-black"><b>AMBITO PROFESIONAL</b></h6>
 					</div>
 				</div><!-- col-sm-3 -->
 				<div class="col-sm-12 col-md-9">
-					<p class="margin-b-50">Duis non volutpat arcu, eu mollis tellus. Sed finibus aliquam neque 
-					sit amet sodales. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-					Nulla maximus pellentes que velit, quis consequat nulla effi citur at. 
-					Maecenas sed massa tristique.Duis non volutpat arcu, eu mollis tellus. 
-					Sed finibus aliquam neque sit amet sodales. Lorem ipsum dolor sit amet, 
-					consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur 
-					adipiscing elit. Nulla maximus pellentes que velit, quis consequat nulla 
-					effi citur at.Maecenas sed massa tristique.</p>
-					
+					<p class="margin-b-50">
+					<textarea style="resize: none;" name="aboutMe" cols="105" rows="7" value="{{ old('urlPinterest') }}" placeholder="Diligente, reesponsable y altamente confiable... etc."></textarea>
+					</p>
+
 					<div class="row">
 						<div class="col-sm-6 col-md-6 col-lg-3">
 							<div class="radial-prog-area margin-b-30">
@@ -210,8 +222,8 @@
 			<div class="row">
 				<div class="col-sm-12 col-md-3">
 					<div class="heading">
-						<h3><b>Work Experience</b></h3>
-						<h6 class="font-lite-black"><b>PREVIOUS JOBS</b></h6>
+						<h3><b>Experiencia de Trabajo</b></h3>
+						<h6 class="font-lite-black"><b>TRABAJOS PREVIOS</b></h6>
 					</div>
 				</div><!-- col-sm-3 -->
 				
@@ -366,6 +378,10 @@
 		</div><!-- container -->
 		
 	</section><!-- education-section -->
+	
+	@endforeach	
+	<input type="submit" value="SIGNUP">
+	</form>
 	
 	<footer>
 		<p class="copyright">
