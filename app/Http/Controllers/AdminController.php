@@ -7,6 +7,9 @@ use Redirect;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use DB;
+use App\Quotation;
+
 class AdminController extends Controller
 {
     /**
@@ -125,8 +128,20 @@ class AdminController extends Controller
      */
     public function getProfile()
     {
-        return view('perfil');
+        $dataUser = DB::table('users')->get();
+    
+        return view('perfil', ['dataUser' => $dataUser]);
     }
+
+    /**
+     * Obtain ProfileEdit view.
+     */
+    // public function getProfiledit()
+    // {
+    //     $dataUser = DB::table('users')->get();
+    
+    //     return view('perfiledit', ['dataUser' => $dataUser]);
+    // }
 
     /**
      * Obtain Trends view.

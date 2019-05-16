@@ -52,8 +52,8 @@
 						@endif
 
 						<div class="col-md-6">
-						<input type="hidden" name="profile" value="bading" class="form-control" required>
-						<input class="radio" type="radio" name="profile" value="normal">Persona fisica (Perfil Normal) <br>
+						<input type="hidden" name="default" value="default" class="form-control">
+						<input class="radio" type="radio" name="profile" value="normal" required>Persona fisica (Perfil Normal)<br>
 						<input class="radio" type="radio" name="profile" value="empresarial">Perfil Empresarial<br>
 						
 						</div>
@@ -72,8 +72,8 @@
 						@endif
 
 						<div class="col-md-6">
-						<input type="hidden" name="speciality" value="bading" class="form-control" required>
-						<input class="radio" type="radio" name="speciality" value="artista">Arista <br>
+						<input type="hidden" name="default" value="default" class="form-control">
+						<input class="radio" type="radio" name="speciality" value="artista" required>Arista<br>
 						<input class="radio" type="radio" name="speciality" value="desarrollador">Desarrollador<br>
 						
 						</div>

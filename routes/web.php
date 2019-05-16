@@ -58,12 +58,8 @@ Route::group( ['middleware' => 'auth' ], function(){
     // NEW KIND OF CALLS FOR VIEWS... STYLIZED!!!
     Route::post('/logout', 'AdminController@getLogout');
     Route::get('/profile', 'AdminController@getProfile');
-    Route::get('dataUser', function () {
+    Route::get('/editprofile', 'AdminController@getProfiledit');
 
-        $dataUser = DB::table('users')->get();
-    
-        return view('perfil', ['dataUser' => $dataUser]);
-    });
     Route::get('/trends', 'AdminController@getTrends');
     
 });
