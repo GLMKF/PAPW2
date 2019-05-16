@@ -24,6 +24,7 @@ class CreateCvsTable extends Migration
             $table->string('cellphone')->nullable();
             $table->string('cellphoneInfo');
             $table->string('aboutMe')->nullable();
+            $table->integer('languages')->nullable();
             $table->string('workExperience');
             $table->string('workExperience_jobs');
             $table->string('portfolio');

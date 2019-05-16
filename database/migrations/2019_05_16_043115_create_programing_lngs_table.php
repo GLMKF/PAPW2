@@ -14,10 +14,10 @@ class CreateProgramingLngsTable extends Migration
     public function up()
     {
         Schema::create('programing_lngs', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('user')->unique();
-            $table->string('language')->nullable();
-            $table->string('percent')->nullable();
+            $table->string('user');
+            $table->string('language');
+            $table->string('percent');
+            $table->primary(array('user', 'language'));
             $table->timestamps();
         });
     }

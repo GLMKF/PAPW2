@@ -14,15 +14,15 @@ class CreateExperienceJobsTable extends Migration
     public function up()
     {
         Schema::create('experience_jobs', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('user')->unique();
+            $table->string('user');
             $table->string('position')->nullable();
-            $table->string('institution')->nullable();
+            $table->string('institution');
             $table->string('finish')->nullable();
             $table->string('description')->nullable();
             $table->string('activity1')->nullable();
             $table->string('activity2')->nullable();
             $table->string('activity3')->nullable();
+            $table->primary(array('user', 'institution'));
             $table->timestamps();
         });
     }
