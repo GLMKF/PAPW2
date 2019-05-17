@@ -124,11 +124,20 @@ class AdminController extends Controller
     }
 
     /**
+     * Obtain Trends view.
+     */
+    public function getTrends()
+    {
+        return view('redsocial');
+    }
+    
+    /**
      * Obtain Profile view.
      */
-    public function getProfile()
+    public function getProfile(Request $request)
     {
-        $dataUser = DB::table('users')->get();
+        // $dataUser = DB::table('users')->get();
+        $dataUser = DB::table('users')->where('email', $request->get('email'))->first();
     
         return view('perfil', ['dataUser' => $dataUser]);
     }
@@ -143,11 +152,82 @@ class AdminController extends Controller
         return view('perfiledit', ['dataUser' => $dataUser]);
     }
 
+
     /**
-     * Obtain Trends view.
+     * Save fields edited from profile. (NAME)
      */
-    public function getTrends()
-    {
-        return view('redsocial');
+    public function postStoreName(Request $request) {
+        //Error messages
+        $messages = [
+            "name.required" => "El nombre a cambiar es necesario",
+            "name.max" => "El nombre no puede tener mas de 255 caracteres"
+        ];
+
+        // validate the form data
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|max:255',
+        ], $messages);
+        
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        } 
+        else {
+        $email = $request->get('user');
+        $user = \App\User::where('email',$email)->first();
+        $user->name = $request->get('name');
+        $user->save();
+        }
+    }
+
+    /**
+     * Save fields edited from profile. (BIRTHDATE)
+     */
+    public function postStoreBirthdate(Request $request) {
+        //Error messages
+        $messages = [
+            "name.required" => "El nombre a cambiar es necesario",
+            "name.max" => "El nombre no puede tener mas de 255 caracteres"
+        ];
+
+        // validate the form data
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|max:255',
+        ], $messages);
+        
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        } 
+        else {
+        $email = $request->get('user');
+        $user = \App\User::where('email',$email)->first();
+        $user->name = $request->get('name');
+        $user->save();
+        }
+    }
+
+    /**
+     * Save fields edited from profile. (STATUSMARITAL)
+     */
+    public function postStoreStatusMarital(Request $request) {
+        //Error messages
+        $messages = [
+            "name.required" => "El nombre a cambiar es necesario",
+            "name.max" => "El nombre no puede tener mas de 255 caracteres"
+        ];
+
+        // validate the form data
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|max:255',
+        ], $messages);
+        
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        } 
+        else {
+        $email = $request->get('user');
+        $user = \App\User::where('email',$email)->first();
+        $user->name = $request->get('name');
+        $user->save();
+        }
     }
 }

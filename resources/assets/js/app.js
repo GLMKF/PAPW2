@@ -17,6 +17,7 @@ window.Vue = require('vue');
 
 Vue.component('list-chat', require('./components/ListChat.vue'));
 Vue.component('ChatUser', require('./components/ChatUser.vue'));
+Vue.component('perfil-text-box', require('./components/PorfileEdit.vue'));
 
 const app = new Vue({
     el: '#app'

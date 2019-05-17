@@ -59,7 +59,10 @@ Route::group( ['middleware' => 'auth' ], function(){
     Route::post('/logout', 'AdminController@getLogout');
     Route::get('/profile', 'AdminController@getProfile');
     Route::get('/editprofile', 'AdminController@getProfiledit');
+    Route::post('/profile/editname', 'AdminController@postStoreName');
+    Route::post('/profile/editbirthdate', 'AdminController@postStoreBirthdate');
+    Route::post('/profile/editstatusmarital', 'AdminController@postStoreStatusMarital');
 
     Route::get('/trends', 'AdminController@getTrends');
-    
+    Route::post('/fieldName', 'AdminController@getFieldsProfileName');
 });

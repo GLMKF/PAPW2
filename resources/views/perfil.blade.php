@@ -8,6 +8,7 @@
     <meta name="keywords" content="HTML,CSS,XML,JavaScript">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Title -->
     <title>DevArt - Mi Perfil</title>
 	<!-- Place favicon.ico in the root directory -->
@@ -67,7 +68,7 @@
     </nav>
     <!-- MainMenu-Area-End -->
 	<!-- intro-section -->
-	<section class="intro-section">
+	<section id="app" class="intro-section">
 		<div class="container">
 		
 			<div class="heading-wrapper">
@@ -106,7 +107,7 @@
 			
 		
 		
-			<div class="intro">
+			<div  class="intro">
 				<div class="row">
 				
 					<div class="col-sm-8 col-md-4 col-lg-3">
@@ -115,14 +116,10 @@
 					
 					<div class="col-sm-10 col-md-5 col-lg-6">	
 						@foreach($dataUser as $key => $data)
-							<h2><b>{{$data->name}}</b></h2>
-							<h4 class="font-yellow">Key Account Manager</h4>
-							<ul class="information margin-tb-30">
-								<li><b class="font-yellow">BORN</b> : August 25, 1987</li>
-								<li><b class="font-yellow">EMAIL</b> : {{$data->email}}</li>
-								<li><b class="font-yellow">MARITAL STATUS</b> : Married</li>
-							</ul>
-						@endforeach	
+							<perfil-text-box :name_user="'{{$data->name}}'" :email="'{{$data->email}}'" :id_user="{{Auth::user()->id}}"></perfil-text-box>
+						@endforeach
+
+						
 							<ul class="social-icons">
 								<li><a href="#"><i class="ion-social-pinterest"></i></a></li>
 								<li><a href="#"><i class="ion-social-linkedin"></i></a></li>
@@ -406,6 +403,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/wow.min.js"></script>
     <!--Main-active-JS-->
     <script src="js/main.js"></script>
+	<script src="{{ asset('js/app.js') }}"></script>
 	
 </body>
 </html>
