@@ -12,21 +12,21 @@
         <ul class="information margin-tb-30">
             <li><b class="font-yellow">BORN</b> : Cumpleaños
                 <template v-if="isChangeBorn" >
-                    <a v-on:click="isChangeBorn = false" href="" class="bttn-default wow fadeInUp standard btnvue" data-wow-delay="0.8s"><i class="lnr lnr-pencil"></i></a>
+                    <a v-on:click="isChangeBorn = false" class="bttn-default wow fadeInUp standard btnvue" data-wow-delay="0.8s"><i class="lnr lnr-pencil"></i></a>
                 </template>
                 <template v-else>
                     <input  v-model="user_birthdate" type="date" placeholder="Date" required="" onfocus="(this.type='date')"> 
-                    <a v-on:click= "isChangeBorn = SaveBirthdate(user_birthdate)" href="" class="bttn-default wow fadeInUp standard btnvue" data-wow-delay="0.8s"><i class="lnr lnr-pencil"></i> {{ user_birthdate ? "Guardar" :"Cancelar" }}</a>
+                    <a v-on:click= "isChangeBorn = SaveBirthdate(user_birthdate)" class="bttn-default wow fadeInUp standard btnvue" data-wow-delay="0.8s"><i class="lnr lnr-pencil"></i> {{ user_birthdate ? "Guardar" : "Cancelar" }}</a>
                 </template>
             </li>
             <li><b class="font-yellow">EMAIL</b> : {{email}}</li>
             <li><b class="font-yellow">MARITAL STATUS</b> : Married
                 <template v-if="isChangeMartial">
-                    <a v-on:click="isChangeMartial = false" href="" class="bttn-default wow fadeInUp standard btnvue" data-wow-delay="0.8s"><i class="lnr lnr-pencil"></i></a>
+                    <a v-on:click="isChangeMartial = false" class="bttn-default wow fadeInUp standard btnvue" data-wow-delay="0.8s"><i class="lnr lnr-pencil"></i></a>
                 </template>
                 <template v-else>
                     <input  v-model="user_statusMarital" type="text"> 
-                    <a v-on:click= "isChangeMartial = SaveStatusMartial(user_statusMarital)" href="" class="bttn-default wow fadeInUp standard btnvue" data-wow-delay="0.8s"><i class="lnr lnr-pencil"></i> {{ user_statusMarital ? "Guardar" :"Cancelar" }}</a>
+                    <a v-on:click= "isChangeMartial = SaveStatusMartial(user_statusMarital)" class="bttn-default wow fadeInUp standard btnvue" data-wow-delay="0.8s"><i class="lnr lnr-pencil"></i> {{ user_statusMarital ? "Guardar" : "Cancelar" }}</a>
                 </template>
             </li>
         </ul>
@@ -64,6 +64,7 @@
                 })
                 .then(function (response) {
                     console.log(response);
+                    return true;
                 })
                 .catch(function (error) {
                     console.log(error);

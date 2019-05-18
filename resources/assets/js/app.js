@@ -17,8 +17,24 @@ window.Vue = require('vue');
 
 Vue.component('list-chat', require('./components/ListChat.vue'));
 Vue.component('ChatUser', require('./components/ChatUser.vue'));
-Vue.component('perfil-text-box', require('./components/PorfileEdit.vue'));
+Vue.component('perfil-text-box', require('./components/ProfileEdit.vue'));
+Vue.component('Lng-Percent', require('./components/LngPercent.vue'));
+Vue.component('programming-lng', require('./components/ProgrammingLng.vue'));
+Vue.component('work-xperience', require('./components/WorkXperience.vue'));
+Vue.component('education', require('./components/Education.vue'));
 
 const app = new Vue({
     el: '#app'
+});
+
+const applng = new Vue({
+    el: '#applng'
+});
+
+const appXperience = new Vue({
+    el: '#appXperience'
+});
+
+const appEducation = new Vue({
+    el: '#appEducation'
 });

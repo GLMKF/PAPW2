@@ -65,4 +65,13 @@ Route::group( ['middleware' => 'auth' ], function(){
 
     Route::get('/trends', 'AdminController@getTrends');
     Route::post('/fieldName', 'AdminController@getFieldsProfileName');
+    Route::post('/storeWorkXperience','AdminController@StoreWorkXperience');
+    Route::get('/getWorkXperience','AdminController@GetWorkXperience');
+    Route::post('/storeEducation','AdminController@StoreEducation');
+    Route::get('/getEducation','AdminController@GetEducation');
+
+    Route::post('/SaveLng','AdminController@SaveProgrammingLng');
+    Route::get('/getLng','AdminController@GetProgrammingLng');
+    Route::post('/updateLng', 'AdminController@UpdateProgrammingLng');
+    Route::post('/deleteLng', 'AdminController@DeleteProgrammingLng');
 });

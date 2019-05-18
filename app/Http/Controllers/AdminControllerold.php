@@ -146,7 +146,7 @@ class AdminController extends Controller
     public function getProfiledit()
     {
         $dataUser = DB::table('users')->get();
-    
+
         return view('perfiledit', ['dataUser' => $dataUser]);
     }
 
@@ -227,111 +227,5 @@ class AdminController extends Controller
         $user->name = $request->get('name');
         $user->save();
         }
-    }
-
-    /**
-     * Save store language
-     */
-    public function SaveProgrammingLng(Request $request) {
-        $programlng = new \App\programingLng();
-        $programlng->user = $request->user;
-        $programlng->language = $request->language;
-        $programlng->percent = $request->percent;
-        $programlng->save();
-    }
-
-    public function GetProgrammingLng(Request $request) {
-        $email = $request['email'];
-        $programlngs = DB::select('select user, language, percent from programing_lngs
-                                where user = ?', 
-                                [$email]);
-        return response()->json(array('lngs'=>$programlngs),200);
-    }
-
-    public function UpdateProgrammingLng(Request $request) {
-        DB::table('programing_lngs')
-            ->where('user',$request['user'])
-            ->where('language',$request['language'])
-            ->update(['percent' => $request['percent']]);
-    }
-
-    public function DeleteProgrammingLng(Request $request) {
-        DB::table('programing_lngs')
-            ->where('user',$request['user'])
-            ->where('language',$request['language'])
-            ->delete();
-    }
-    
-    /**
-     * Save Work Xperience
-     */
-    public function StoreWorkXperience(Request $request) {
-        $workXp = new \App\experienceJob();
-        $workXp->user = $request->user;
-        $workXp->position = $request->position;
-        $workXp->institution = $request->institution;
-        $workXp->finish = $request->finish;
-        $workXp->description = $request->description;
-        $workXp->activity1 = $request->activity1;
-        $workXp->activity2 = $request->activity2;
-        $workXp->activity3 = $request->activity3;
-        $workXp->save();
-    }
-
-    public function GetWorkXperience(Request $request) {
-        $email=$request->get('email');
-        $workXp = DB::select('select user, position, institution, finish, description, activity1, activity2, activity3 from experience_jobs
-                                where user = ?', 
-                                [$email]);
-        return response()->json(array('work'=>$workXp),200);
-    }
-
-    public function UpdateProgrammingLng(Request $request) {
-        DB::table('programing_lngs')
-            ->where('user',$request['user'])
-            ->where('language',$request['language'])
-            ->update(['percent' => $request['percent']]);
-    }
-
-    public function DeleteProgrammingLng(Request $request) {
-        DB::table('programing_lngs')
-            ->where('user',$request['user'])
-            ->where('language',$request['language'])
-            ->delete();
-    }
-
-    /**
-     * Save Education
-     */
-    public function StoreEducation(Request $request) {
-        $education = new \App\education();
-        $education->user = $request->user;
-        $education->position = $request->position;
-        $education->institution = $request->institution;
-        $education->finish = $request->finish;
-        $education->description = $request->description;
-        $education->save();
-    }
-
-    public function GetEducation(Request $request) {
-        $email=$request->get('email');
-        $education = DB::select('select user, position, institution, finish, description from education
-                                where user = ?', 
-                                [$email]);
-        return response()->json(array('education'=>$education),200);
-    }
-
-    public function UpdateProgrammingLng(Request $request) {
-        DB::table('programing_lngs')
-            ->where('user',$request['user'])
-            ->where('language',$request['language'])
-            ->update(['percent' => $request['percent']]);
-    }
-
-    public function DeleteProgrammingLng(Request $request) {
-        DB::table('programing_lngs')
-            ->where('user',$request['user'])
-            ->where('language',$request['language'])
-            ->delete();
     }
 }

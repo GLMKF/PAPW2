@@ -68,7 +68,7 @@
     </nav>
     <!-- MainMenu-Area-End -->
 	<!-- intro-section -->
-	<section id="app"  class="intro-section">
+	<section id="app" class="intro-section">
 		<div class="container">
 		
 			<div class="heading-wrapper">
@@ -116,8 +116,6 @@
 					
 					<div class="col-sm-10 col-md-5 col-lg-6">	
 						<perfil-text-box :name_user="'{{$dataUser->name}}'" :email="'{{$dataUser->email}}'" :id_user="{{$dataUser->id}}"></perfil-text-box>
-
-						
 							<ul class="social-icons">
 								<li><a href="#"><i class="ion-social-pinterest"></i></a></li>
 								<li><a href="#"><i class="ion-social-linkedin"></i></a></li>
@@ -138,8 +136,8 @@
 	</section><!-- intro-section -->
 	
 	
-	<section id="applng" class="about-section section">
-		<div class="container ">
+	<section class="about-section section">
+		<div class="container">
 			<div class="row">
 				<div class="col-sm-12 col-md-3">
 					<div class="heading">
@@ -157,13 +155,50 @@
 					adipiscing elit. Nulla maximus pellentes que velit, quis consequat nulla 
 					effi citur at.Maecenas sed massa tristique.</p>
 					
-					<programming-lng :email="'{{$dataUser->email}}'"></programming-lng>
+					<div class="row">
+						<div class="col-sm-6 col-md-6 col-lg-3">
+							<div class="radial-prog-area margin-b-30">
+								<div class="radial-progress" data-prog-percent=".97">
+									<div></div>
+									<h6 class="progress-title">HTML5 & CSS3</h6>
+								</div>
+							</div><!-- radial-prog-area-->
+						</div><!-- col-sm-6-->
+					
+						<div class="col-sm-6 col-md-6 col-lg-3">
+							<div class="radial-prog-area margin-b-30">
+								<div class="radial-progress" data-prog-percent=".78">
+									<div></div>
+									<h6 class="progress-title">WEB DESIGN</h6>
+								</div>
+							</div><!-- radial-prog-area-->
+						</div><!-- col-sm-6-->
+						
+						<div class="col-sm-6 col-md-6 col-lg-3">
+							<div class="radial-prog-area margin-b-30">
+								<div class="radial-progress" data-prog-percent=".67">
+									<div></div>
+									<h6 class="progress-title">JAVA</h6>
+								</div>
+							</div><!-- radial-prog-area-->
+						</div><!-- col-sm-6-->
+						
+						<div class="col-sm-6 col-md-6 col-lg-3">
+							<div class="radial-prog-area margin-b-50">
+								<div class="radial-progress" data-prog-percent=".97">
+									<div></div>
+									<h6 class="progress-title">PHP</h6>
+								</div>
+							</div><!-- radial-prog-area-->
+						</div><!-- col-sm-6-->
+					
+					</div><!-- row -->
 				</div><!-- col-sm-9 -->
 			</div><!-- row -->
 		</div><!-- container -->
 	</section><!-- about-section -->
 	
-	<section id="appXperience" class="experience-section section">
+	<section class="experience-section section">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12 col-md-3">
@@ -172,8 +207,38 @@
 						<h6 class="font-lite-black"><b>PREVIOUS JOBS</b></h6>
 					</div>
 				</div><!-- col-sm-3 -->
+				
 				<div class="col-sm-12 col-md-9">
-					<work-xperience :email="'{{$dataUser->email}}'"></work-xperience>
+					<div class="experience margin-b-50">
+						<h4><b>JUNIOR PROJECT MANAGER</b></h4>
+						<h5 class="font-yellow"><b>DESIGN STUDIO</b></h5>
+						<h6 class="font-lite-black margin-t-10">MARCH 2015 - PRESENT</h6>
+						<p class="margin-tb-30">Duis non volutpat arcu, eu mollis tellus. Sed finibus aliquam neque sit amet sodales. 
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla maximus pellentes que velit, 
+							quis consequat nulla effi citur at. Maecenas sed massa tristique.Duis non volutpat arcu, 
+							eu mollis tellus. Sed finibus aliquam neque sit amet sodales. </p>
+						<ul class="list margin-b-30">
+							<li>Duis non volutpat arcu, eu mollis tellus.</li>
+							<li>Quis consequat nulla effi citur at.</li>
+							<li>Sed finibus aliquam neque sit.</li>
+						</ul>
+					</div><!-- experience -->
+					
+					<div class="experience margin-b-50">
+						<h4><b>WEB MASTER/WEB DEVELOPER</b></h4>
+						<h5 class="font-yellow"><b>DESIGN & WEB STUDIO</b></h5>
+						<h6 class="font-lite-black margin-t-10">APRIL 2014 - FEBRUARY 2015</h6>
+						<p class="margin-tb-30">Duis non volutpat arcu, eu mollis tellus. Sed finibus aliquam neque sit amet sodales. 
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla maximus pellentes que velit, 
+							quis consequat nulla effi citur at. Maecenas sed massa tristique.Duis non volutpat arcu, 
+							eu mollis tellus. Sed finibus aliquam neque sit amet sodales. </p>
+						<ul class="list">
+							<li>Duis non volutpat arcu, eu mollis tellus.</li>
+							<li>Quis consequat nulla effi citur at.</li>
+							<li>Sed finibus aliquam neque sit.</li>
+						</ul>
+					</div><!-- experience -->
+					
 				</div><!-- col-sm-9 -->
 			</div><!-- row -->
 		</div><!-- container -->
@@ -246,7 +311,7 @@
 	</section><!-- portfolio-section -->
 	
 	
-	<section id="appEducation" class="education-section section">
+	<section class="education-section section">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12 col-md-3">
@@ -255,11 +320,44 @@
 						<h6 class="font-lite-black"><b>ACADEMIC CAREER</b></h6>
 					</div>
 				</div><!-- col-sm-3 -->
+				
 				<div class="col-sm-12 col-md-9">
-					<education :email="'{{$dataUser->email}}'"></education>
+				
+					<div class="education-wrapper">
+						<div class="education margin-b-50">
+							<h4><b>MASTER DEGREE IN SCIENCE</b></h4>
+							<h5 class="font-yellow"><b>UCLA - SCIENCE AND ENGINEERING</b></h5>
+							<h6 class="font-lite-black margin-t-10">GRADUATED IN MAY 2010(2 YEARS)</h6>
+							<p class="margin-tb-30">Duis non volutpat arcu, eu mollis tellus. Sed finibus aliquam neque sit amet sodales. 
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla maximus pellentes que velit, 
+							quis consequat nulla effi citur at. Maecenas sed massa tristique.Duis non volutpat arcu, 
+							eu mollis tellus. Sed finibus aliquam neque sit amet sodales. </p>
+						</div><!-- education -->
+						
+						<div class="education margin-b-50">
+							<h4><b>COURSE ON COMPUTER SCIENCE</b></h4>
+							<h5 class="font-yellow"><b>NEW YORK PUBLIC UNIVERSITY</b></h5>
+							<h6 class="font-lite-black margin-t-10">GRADUATED IN MAY 2009(6 MONTHS)</h6>
+							<p class="margin-tb-30">Duis non volutpat arcu, eu mollis tellus. Sed finibus aliquam neque sit amet sodales. 
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla maximus pellentes que velit, 
+							quis consequat nulla effi citur at. Maecenas sed massa tristique.Duis non volutpat arcu, 
+							eu mollis tellus. Sed finibus aliquam neque sit amet sodales. </p>
+						</div><!-- education -->
+						
+						<div class="education margin-b-50">
+							<h4><b>GRADUATED VALEDICTERIAN</b></h4>
+							<h5 class="font-yellow"><b>PUBLIC COLLEGE</b></h5>
+							<h6 class="font-lite-black margin-t-10">GRADUATED IN MAY 2008(4 YEARS)</h6>
+							<p class="margin-tb-30">Duis non volutpat arcu, eu mollis tellus. Sed finibus aliquam neque sit amet sodales. 
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla maximus pellentes que velit, 
+							quis consequat nulla effi citur at. Maecenas sed massa tristique.Duis non volutpat arcu, 
+							eu mollis tellus. Sed finibus aliquam neque sit amet sodales. </p>
+						</div><!-- education -->
+					</div><!-- education-wrapper -->
 				</div><!-- col-sm-9 -->
 			</div><!-- row -->
 		</div><!-- container -->
+		
 	</section><!-- education-section -->
 	
 	<footer>
@@ -270,7 +368,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 		</p>
 	</footer>
 	
-	<script src="{{ asset('js/app.js') }}"></script>
+	
 	<!-- SCIPTS -->
 	<script src="common-js/jquery-3.2.1.min.js"></script>
 	
@@ -301,7 +399,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/wow.min.js"></script>
     <!--Main-active-JS-->
     <script src="js/main.js"></script>
-	
+	<script src="{{ asset('js/app.js') }}"></script>
 	
 </body>
 </html>

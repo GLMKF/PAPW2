@@ -8,6 +8,7 @@
     <meta name="keywords" content="HTML,CSS,XML,JavaScript">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Title -->
     <title>DevArt - Mi Perfil</title>
 	<!-- Place favicon.ico in the root directory -->
@@ -70,7 +71,6 @@
 	<section class="intro-section">
 		<div class="container">
 		<form method="post" action="/editprofilefirst" role="form">
-			@foreach($dataUser as $key => $data)
 			<div class="heading-wrapper">
 				<div class="row">
 					<div class="col-sm-6 col-md-6 col-lg-4">
@@ -104,8 +104,7 @@
 							<i class="icon ion-ios-chatboxes-outline"></i>
 							<div class="right-area">
 							<!-- Correo -->
-								<!-- <input class="text" type="text" name="email" value="{{ old('email') }}" placeholder="{{$data->email}}"> -->
-								<h5>{{$data->email}}</h5>
+								<h5>{{$dataUser->email}}</h5>
 								<input class="text" type="text" name="reply" value="{{ old('reply') }}" placeholder="Respondo en 24 horas">
 								<!-- <h6>REPLY IN 24 HOURS</h6> -->
 							</div><!-- right-area -->
@@ -125,12 +124,12 @@
 					
 					<div class="col-sm-10 col-md-5 col-lg-6">	
 						
-							<h2><b>{{$data->name}}</b></h2>
+							<h2><b>{{$dataUser->name}}</b></h2>
 								<input class="text" type="text" name="position" value="{{ old('position') }}" placeholder="Puesto que desempeño (Ing, Lic, etc)">
 							<!-- <h4 class="font-yellow">Key Account Manager</h4> -->
 							<ul class="information margin-tb-30">
 								<li><b class="font-yellow">FECHA DE NACIMIENTO</b> :  <input class="text" type="date" name="birthdate" value="{{ old('birthdate') }}" placeholder="Date" required="" onfocus="(this.type='date')"></li>
-								<li><b class="font-yellow">EMAIL</b> : {{$data->email}}</li>
+								<li><b class="font-yellow">EMAIL</b> : {{$dataUser->email}}</li>
 								<li><b class="font-yellow">SITUACION MARITAL</b> : <input class="text" type="text" name="statusmarital" value="{{ old('statusmarital') }}" placeholder="Casado(a), soltero(a), viudo(a), etc"></li>
 							</ul>
 							<ul class="social-icons">
@@ -171,13 +170,15 @@
 				</div><!-- col-sm-3 -->
 				<div class="col-sm-12 col-md-9">
 					<p class="margin-b-50">
-					<textarea style="resize: none;" name="aboutMe" cols="105" rows="7" value="{{ old('urlPinterest') }}" placeholder="Diligente, reesponsable y altamente confiable... etc."></textarea>
+					<textarea style="resize: none;" name="aboutMe" cols="105" rows="7" value="{{ old('aboutMe') }}" placeholder="Diligente, reesponsable y altamente confiable... etc."></textarea>
 					</p>
+
+						<perfil-lng></perfil-lng>
 
 					<div class="row">
 						<div class="col-sm-6 col-md-6 col-lg-3">
 							<div class="radial-prog-area margin-b-30">
-								<div class="radial-progress" data-prog-percent=".97">
+								<div class="line-progress" data-prog-percent=".97">
 									<div></div>
 									<h6 class="progress-title">HTML5 & CSS3</h6>
 								</div>
@@ -379,7 +380,6 @@
 		
 	</section><!-- education-section -->
 	
-	@endforeach	
 	<input type="submit" value="SIGNUP">
 	</form>
 	
@@ -422,6 +422,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/wow.min.js"></script>
     <!--Main-active-JS-->
     <script src="js/main.js"></script>
+	<script src="{{ asset('js/app.js') }}"></script>
 	
 </body>
 </html>
