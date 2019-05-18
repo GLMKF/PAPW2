@@ -137,7 +137,6 @@
 		</div><!-- container -->
 	</section><!-- intro-section -->
 	
-	
 	<section id="applng" class="about-section section">
 		<div class="container ">
 			<div class="row">
@@ -148,14 +147,14 @@
 					</div>
 				</div><!-- col-sm-3 -->
 				<div class="col-sm-12 col-md-9">
-					<p class="margin-b-50">Duis non volutpat arcu, eu mollis tellus. Sed finibus aliquam neque 
+				<!-- 	<p class="margin-b-50">Duis non volutpat arcu, eu mollis tellus. Sed finibus aliquam neque 
 					sit amet sodales. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 					Nulla maximus pellentes que velit, quis consequat nulla effi citur at. 
 					Maecenas sed massa tristique.Duis non volutpat arcu, eu mollis tellus. 
 					Sed finibus aliquam neque sit amet sodales. Lorem ipsum dolor sit amet, 
 					consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur 
 					adipiscing elit. Nulla maximus pellentes que velit, quis consequat nulla 
-					effi citur at.Maecenas sed massa tristique.</p>
+					effi citur at.Maecenas sed massa tristique.</p> -->
 					
 					<programming-lng :email="'{{$dataUser->email}}'"></programming-lng>
 				</div><!-- col-sm-9 -->

@@ -58,20 +58,37 @@ Route::group( ['middleware' => 'auth' ], function(){
     // NEW KIND OF CALLS FOR VIEWS... STYLIZED!!!
     Route::post('/logout', 'AdminController@getLogout');
     Route::get('/profile', 'AdminController@getProfile');
+    
+    Route::get('/trends', 'AdminController@getTrends');
+    Route::post('/fieldName', 'AdminController@getFieldsProfileName');
+
+    //EDIT ALL PROFILE CATEGORIES
     Route::get('/editprofile', 'AdminController@getProfiledit');
+
+    //SEGMENTS TO EDIT PROFILE, ONE CATEGORY ONLY
     Route::post('/profile/editname', 'AdminController@postStoreName');
     Route::post('/profile/editbirthdate', 'AdminController@postStoreBirthdate');
     Route::post('/profile/editstatusmarital', 'AdminController@postStoreStatusMarital');
 
-    Route::get('/trends', 'AdminController@getTrends');
-    Route::post('/fieldName', 'AdminController@getFieldsProfileName');
-    Route::post('/storeWorkXperience','AdminController@StoreWorkXperience');
-    Route::get('/getWorkXperience','AdminController@GetWorkXperience');
-    Route::post('/storeEducation','AdminController@StoreEducation');
-    Route::get('/getEducation','AdminController@GetEducation');
-
+    //PROGRAMMING LANGUAGES
     Route::post('/SaveLng','AdminController@SaveProgrammingLng');
     Route::get('/getLng','AdminController@GetProgrammingLng');
     Route::post('/updateLng', 'AdminController@UpdateProgrammingLng');
     Route::post('/deleteLng', 'AdminController@DeleteProgrammingLng');
+
+    // WORK EXPERIENCE
+    Route::post('/storeWorkXperience','AdminController@StoreWorkXperience');
+    Route::get('/getWorkXperience','AdminController@GetWorkXperience');
+    Route::post('/updateWorkXperience', 'AdminController@UpdateWorkXperience');
+    Route::post('/deleteWorkXperience', 'AdminController@DeleteWorkXperience');
+
+    //PORTFOLIO
+
+
+    //EDUCATION
+    Route::post('/storeEducation','AdminController@StoreEducation');
+    Route::get('/getEducation','AdminController@GetEducation');
+    Route::post('/updateEducation', 'AdminController@UpdateEducation');
+    Route::post('/deleteEducation', 'AdminController@DeleteEducation');
+
 });

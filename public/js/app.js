@@ -47473,7 +47473,7 @@ var render = function() {
                     }
                   },
                   [
-                    _c("span", { staticClass: "glyphicon glyphicon-plus" }),
+                    _c("span", { staticClass: "glyphicon-plus" }),
                     _vm._v(" ADD\n                ")
                   ]
                 ),
@@ -47491,7 +47491,7 @@ var render = function() {
                     }
                   },
                   [
-                    _c("span", { staticClass: "glyphicon glyphicon-plus" }),
+                    _c("span", { staticClass: "glyphicon-plus" }),
                     _vm._v(" Cancelar\n                ")
                   ]
                 )
@@ -47566,7 +47566,7 @@ var render = function() {
                     }
                   },
                   [
-                    _c("span", { staticClass: "glyphicon glyphicon-plus" }),
+                    _c("span", { staticClass: "glyphicon-plus" }),
                     _vm._v(" Nuevo\n                ")
                   ]
                 )
@@ -47599,7 +47599,7 @@ var render = function() {
           },
           [
             _c("h3", { attrs: { slot: "header" }, slot: "header" }, [
-              _vm._v("Edit Item")
+              _vm._v("Editar Lenguaje de Programacion")
             ]),
             _vm._v(" "),
             _c("div", { attrs: { slot: "body" }, slot: "body" }, [
@@ -47635,7 +47635,7 @@ var render = function() {
                     }
                   }
                 },
-                [_vm._v("\n            Cancel\n        ")]
+                [_vm._v("\n                Cancel\n            ")]
               ),
               _vm._v(" "),
               _c(
@@ -47648,7 +47648,7 @@ var render = function() {
                     }
                   }
                 },
-                [_vm._v("\n            Update\n        ")]
+                [_vm._v("\n                Update\n            ")]
               )
             ])
           ]
@@ -47858,6 +47858,56 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: {
@@ -47868,7 +47918,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             items: [], //All work experience of user
             hasError: true, //Validate
             newItem: { 'user': '', 'position': '', 'institution': '', 'finish': '', 'description': '', 'activity1': '', 'activity2': '', 'activity3': '' },
-            showField: false
+            showField: false,
+            showModal: false,
+            editItem: { 'user': '', 'position': '', 'institution': '', 'finish': '', 'description': '', 'activity1': '', 'activity2': '', 'activity3': '' }
         };
     },
     mounted: function mounted() {
@@ -47893,7 +47945,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 });
             }
         },
-        cancelLng: function cancelLng() {
+        cancelWorkX: function cancelWorkX() {
             this.showField = false;
             this.newItem.user = '';
             this.newItem.position = '';
@@ -47911,8 +47963,46 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     email: this.email
                 }
             }).then(function (response) {
-                _this.items = response.data.workXp;
+                _this.items = response.data.work;
                 console.log(_this.items);
+            });
+        },
+        setVal: function setVal(item) {
+            this.editItem = item;
+        },
+        editWorkX: function editWorkX() {
+            var _this2 = this;
+
+            var position = document.getElementById('e_position');
+            var institucion = document.getElementById('e_institution');
+            var finish = document.getElementById('e_finish');
+            var description = document.getElementById('e_description');
+            var activity1 = document.getElementById('e_activity1');
+            var activity2 = document.getElementById('e_activity2');
+            var activity3 = document.getElementById('e_activity3');
+            if (position.value == "") this.editItem.position = "No Definido";else this.editItem.position = position.value;
+
+            if (finish.value == "") this.editItem.finish = "No Definido";else this.editItem.finish = finish.value;
+
+            if (description.value == "") this.editItem.description = "No Definido";else this.editItem.description = description.value;
+
+            if (activity1.value == "") this.editItem.activity1 = "No Definido";else this.editItem.activity1 = activity1.value;
+
+            if (activity2.value == "") this.editItem.activity2 = "No Definido";else this.editItem.activity2 = activity2.value;
+
+            if (activity3.value == "") this.editItem.activity3 = "No Definido";else this.editItem.activity3 = activity3.value;
+
+            axios.post('/updateWorkXperience', this.editItem).then(function (response) {
+                _this2.getVueItems();
+                _this2.showModal = false;
+            });
+        },
+        deleteWorkX: function deleteWorkX(item) {
+            var _this3 = this;
+
+            axios.post('/deleteWorkXperience', item).then(function (response) {
+                _this3.getVueItems();
+                _this3.showModal = false;
             });
         }
     }
@@ -47926,356 +48016,564 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "row" },
-    [
-      _vm.showField
-        ? [
-            _vm._m(0),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "position" } }, [
-                _vm._v("Posición que desarrolló:")
-              ]),
+  return _c("div", [
+    _c(
+      "div",
+      { staticClass: "row" },
+      [
+        _vm.showField
+          ? [
+              _vm._m(0),
               _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.newItem.position,
-                    expression: "newItem.position"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: {
-                  type: "text",
-                  id: "position",
-                  name: "position",
-                  required: "",
-                  placeholder: "Ej. Ejecutivo"
-                },
-                domProps: { value: _vm.newItem.position },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.newItem, "position", $event.target.value)
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "institution" } }, [
-                _vm._v("Institución donde desarrolló:")
-              ]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.newItem.institution,
-                    expression: "newItem.institution"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: {
-                  type: "text",
-                  id: "institution",
-                  name: "institution",
-                  required: "",
-                  placeholder: "Ej. Banamex"
-                },
-                domProps: { value: _vm.newItem.institution },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.newItem, "institution", $event.target.value)
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "finish" } }, [
-                _vm._v("Período de tiempo:")
-              ]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.newItem.finish,
-                    expression: "newItem.finish"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: {
-                  type: "text",
-                  id: "finish",
-                  name: "finish",
-                  required: "",
-                  placeholder: "Ej. 2005 - Presente"
-                },
-                domProps: { value: _vm.newItem.finish },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.newItem, "finish", $event.target.value)
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "description" } }, [
-                _vm._v("Descripción general del empleo:")
-              ]),
-              _vm._v(" "),
-              _c("textarea", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.newItem.description,
-                    expression: "newItem.description"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: {
-                  rows: "5",
-                  id: "description",
-                  name: "description",
-                  required: "",
-                  placeholder:
-                    "Ej. Desarrollo una posicion de ejecutivo con la finalidad de ayudar a los clientes en sus transacciones que buscan en la institucion bancaria, conosco protocolos para aperturar cuentas, cerras cuentas y hacer pagos de cualqueir índole."
-                },
-                domProps: { value: _vm.newItem.description },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.newItem, "description", $event.target.value)
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "activities" } }, [
-                _vm._v("Puntos a destacar:")
-              ]),
-              _vm._v(" "),
-              _c("ul", { staticClass: "list" }, [
-                _c("li", { staticClass: "liwx" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.newItem.activity1,
-                        expression: "newItem.activity1"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "text",
-                      id: "activity1",
-                      name: "activity1",
-                      required: "",
-                      placeholder: "Ej. Compromiso con el cliente"
-                    },
-                    domProps: { value: _vm.newItem.activity1 },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(_vm.newItem, "activity1", $event.target.value)
-                      }
-                    }
-                  }),
-                  _c("br")
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "position" } }, [
+                  _vm._v("Posición que desarrolló:")
                 ]),
                 _vm._v(" "),
-                _c("li", { staticClass: "liwx" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.newItem.activity2,
-                        expression: "newItem.activity2"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "text",
-                      id: "activity2",
-                      name: "activity2",
-                      required: "",
-                      placeholder:
-                        "Ej. Responsable en transacciones desempeñadas"
-                    },
-                    domProps: { value: _vm.newItem.activity2 },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(_vm.newItem, "activity2", $event.target.value)
-                      }
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.newItem.position,
+                      expression: "newItem.position"
                     }
-                  })
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "text",
+                    id: "position",
+                    name: "position",
+                    required: "",
+                    placeholder: "Ej. Ejecutivo"
+                  },
+                  domProps: { value: _vm.newItem.position },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.newItem, "position", $event.target.value)
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "institution" } }, [
+                  _vm._v("Institución donde desarrolló:")
                 ]),
                 _vm._v(" "),
-                _c("li", { staticClass: "liwx" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.newItem.activity3,
-                        expression: "newItem.activity3"
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.newItem.institution,
+                      expression: "newItem.institution"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "text",
+                    id: "institution",
+                    name: "institution",
+                    required: "",
+                    placeholder: "Ej. Banamex"
+                  },
+                  domProps: { value: _vm.newItem.institution },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
                       }
-                    ],
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "text",
-                      id: "activity3",
-                      name: "activity3",
-                      required: "",
-                      placeholder: "Ej. Amabilidad bilateral"
-                    },
-                    domProps: { value: _vm.newItem.activity3 },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+                      _vm.$set(_vm.newItem, "institution", $event.target.value)
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "finish" } }, [
+                  _vm._v("Período de tiempo:")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.newItem.finish,
+                      expression: "newItem.finish"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "text",
+                    id: "finish",
+                    name: "finish",
+                    required: "",
+                    placeholder: "Ej. 2005 - Presente"
+                  },
+                  domProps: { value: _vm.newItem.finish },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.newItem, "finish", $event.target.value)
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "description" } }, [
+                  _vm._v("Descripción general del empleo:")
+                ]),
+                _vm._v(" "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.newItem.description,
+                      expression: "newItem.description"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    rows: "5",
+                    id: "description",
+                    name: "description",
+                    required: "",
+                    placeholder:
+                      "Ej. Desarrollo una posicion de ejecutivo con la finalidad de ayudar a los clientes en sus transacciones que buscan en la institucion bancaria, conosco protocolos para aperturar cuentas, cerras cuentas y hacer pagos de cualqueir índole."
+                  },
+                  domProps: { value: _vm.newItem.description },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.newItem, "description", $event.target.value)
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "activities" } }, [
+                  _vm._v("Puntos a destacar:")
+                ]),
+                _vm._v(" "),
+                _c("ul", { staticClass: "list" }, [
+                  _c("li", { staticClass: "liwx" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.newItem.activity1,
+                          expression: "newItem.activity1"
                         }
-                        _vm.$set(_vm.newItem, "activity3", $event.target.value)
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        id: "activity1",
+                        name: "activity1",
+                        required: "",
+                        placeholder: "Ej. Compromiso con el cliente"
+                      },
+                      domProps: { value: _vm.newItem.activity1 },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.newItem,
+                            "activity1",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    }),
+                    _c("br")
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "liwx" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.newItem.activity2,
+                          expression: "newItem.activity2"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        id: "activity2",
+                        name: "activity2",
+                        required: "",
+                        placeholder:
+                          "Ej. Responsable en transacciones desempeñadas"
+                      },
+                      domProps: { value: _vm.newItem.activity2 },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.newItem,
+                            "activity2",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "liwx" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.newItem.activity3,
+                          expression: "newItem.activity3"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        id: "activity3",
+                        name: "activity3",
+                        required: "",
+                        placeholder: "Ej. Amabilidad bilateral"
+                      },
+                      domProps: { value: _vm.newItem.activity3 },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.newItem,
+                            "activity3",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    staticStyle: { float: "left" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.createItem()
                       }
                     }
-                  })
+                  },
+                  [
+                    _c("span", { staticClass: "glyphicon-plus" }),
+                    _vm._v(" ADD\n                ")
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    staticStyle: { float: "left" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.cancelWorkX()
+                      }
+                    }
+                  },
+                  [
+                    _c("span", { staticClass: "glyphicon-plus" }),
+                    _vm._v(" Cancelar\n                ")
+                  ]
+                )
+              ])
+            ]
+          : _vm._e(),
+        _vm._v(" "),
+        _vm._l(_vm.items, function(item) {
+          return [
+            _c("div", { staticClass: "col-sm-12 col-md-9" }, [
+              _c("div", { staticClass: "experience margin-b-50" }, [
+                _c("h4", [_c("b", [_vm._v(_vm._s(item.position))])]),
+                _vm._v(" "),
+                _c("h5", { staticClass: "font-yellow" }, [
+                  _c("b", [_vm._v(_vm._s(item.institution))])
+                ]),
+                _vm._v(" "),
+                _c("h6", { staticClass: "font-lite-black margin-t-10" }, [
+                  _vm._v(_vm._s(item.finish))
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "margin-tb-30" }, [
+                  _vm._v(_vm._s(item.description))
+                ]),
+                _vm._v(" "),
+                _c("ul", { staticClass: "list" }, [
+                  _c("li", [_vm._v(_vm._s(item.activity1))]),
+                  _vm._v(" "),
+                  _c("li", [_vm._v(_vm._s(item.activity2))]),
+                  _vm._v(" "),
+                  _c("li", [_vm._v(_vm._s(item.activity3))])
+                ])
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "btn btn-info",
+                  attrs: { id: "WX_show-modal" },
+                  on: {
+                    click: function($event) {
+                      _vm.showModal = true
+                      _vm.setVal(item)
+                    }
+                  }
+                },
+                [_c("span", { staticClass: "lnr lnr-pencil" })]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "btn btn-danger",
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      return _vm.deleteWorkX(item)
+                    }
+                  }
+                },
+                [_c("span", { staticClass: "lnr lnr-trash" })]
+              )
+            ])
+          ]
+        }),
+        _vm._v(" "),
+        !_vm.showField
+          ? [
+              _c("div", [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    staticStyle: { float: "left" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        _vm.showField = true
+                      }
+                    }
+                  },
+                  [
+                    _c("span", { staticClass: "glyphicon-plus" }),
+                    _vm._v(" Nueva Experiencia\n                ")
+                  ]
+                )
+              ])
+            ]
+          : _vm._e(),
+        _vm._v(" "),
+        _c(
+          "p",
+          {
+            staticClass: "text-center alert alert-danger",
+            class: { hidden: _vm.hasError }
+          },
+          [_vm._v("\n            Por favor llene los campos!\n        ")]
+        )
+      ],
+      2
+    ),
+    _vm._v(" "),
+    _vm.showModal
+      ? _c(
+          "div",
+          {
+            staticClass: "row",
+            on: {
+              close: function($event) {
+                _vm.showModal = false
+              }
+            }
+          },
+          [
+            _c("h3", { attrs: { slot: "header" }, slot: "header" }, [
+              _vm._v("Editar Experiencia")
+            ]),
+            _vm._v(" "),
+            _c("div", { attrs: { slot: "body" }, slot: "body" }, [
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "position" } }, [
+                  _vm._v("Posición que desarrolló:")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "text",
+                    id: "e_position",
+                    name: "position",
+                    required: ""
+                  },
+                  domProps: { value: this.editItem.position }
+                })
+              ]),
+              _vm._v(" "),
+              _c("label", [
+                _vm._v(
+                  "Nota: El nombre de la institucion no se puede cambiar, de ser asi favor de eliminar y volver a redactar todo."
+                )
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "form-control",
+                attrs: {
+                  type: "hidden",
+                  id: "e_institution",
+                  name: "institution"
+                },
+                domProps: { value: this.editItem.institution }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "finish" } }, [
+                  _vm._v("Período de tiempo:")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "text",
+                    id: "e_finish",
+                    name: "finish",
+                    required: ""
+                  },
+                  domProps: { value: this.editItem.finish }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "description" } }, [
+                  _vm._v("Descripción general del empleo:")
+                ]),
+                _vm._v(" "),
+                _c("textarea", {
+                  staticClass: "form-control",
+                  attrs: {
+                    rows: "5",
+                    id: "e_description",
+                    name: "description",
+                    required: ""
+                  },
+                  domProps: { value: this.editItem.description }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "activities" } }, [
+                  _vm._v("Puntos a destacar:")
+                ]),
+                _vm._v(" "),
+                _c("ul", { staticClass: "list" }, [
+                  _c("li", { staticClass: "liwx" }, [
+                    _c("input", {
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        id: "e_activity1",
+                        name: "activity1",
+                        required: ""
+                      },
+                      domProps: { value: this.editItem.activity1 }
+                    }),
+                    _c("br")
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "liwx" }, [
+                    _c("input", {
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        id: "e_activity2",
+                        name: "activity2",
+                        required: ""
+                      },
+                      domProps: { value: this.editItem.activity2 }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "liwx" }, [
+                    _c("input", {
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        id: "e_activity3",
+                        name: "activity3",
+                        required: ""
+                      },
+                      domProps: { value: this.editItem.activity3 }
+                    })
+                  ])
                 ])
               ])
             ]),
             _vm._v(" "),
-            _c("div", [
+            _c("div", { attrs: { slot: "footer" }, slot: "footer" }, [
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-primary",
-                  staticStyle: { float: "left" },
+                  staticClass: "btn btn-default",
                   on: {
                     click: function($event) {
-                      $event.preventDefault()
-                      return _vm.createItem()
+                      _vm.showModal = false
+                      _vm.editItem = {}
                     }
                   }
                 },
-                [
-                  _c("span", { staticClass: "glyphicon glyphicon-plus" }),
-                  _vm._v(" ADD\n            ")
-                ]
+                [_vm._v("\n                Cancel\n            ")]
               ),
               _vm._v(" "),
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-primary",
-                  staticStyle: { float: "left" },
+                  staticClass: "btn btn-info",
                   on: {
                     click: function($event) {
-                      $event.preventDefault()
-                      return _vm.cancelLng()
+                      return _vm.editWorkX()
                     }
                   }
                 },
-                [
-                  _c("span", { staticClass: "glyphicon glyphicon-plus" }),
-                  _vm._v(" Cancelar\n            ")
-                ]
+                [_vm._v("\n                Update\n            ")]
               )
             ])
           ]
-        : _vm._e(),
-      _vm._v(" "),
-      _vm._l(_vm.items, function(item) {
-        return [
-          _c("div", { staticClass: "col-sm-12 col-md-9" }, [
-            _c("div", { staticClass: "experience margin-b-50" }, [
-              _c("h4", [_c("b", [_vm._v(_vm._s(item.position))])]),
-              _vm._v(" "),
-              _c("h5", { staticClass: "font-yellow" }, [
-                _c("b", [_vm._v(_vm._s(item.institution))])
-              ]),
-              _vm._v(" "),
-              _c("h6", { staticClass: "font-lite-black margin-t-10" }, [
-                _vm._v(_vm._s(item.finish))
-              ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "margin-tb-30" }, [
-                _vm._v(_vm._s(item.description))
-              ]),
-              _vm._v(" "),
-              _c("ul", { staticClass: "list" }, [
-                _c("li", [_vm._v(_vm._s(item.activity1))]),
-                _vm._v(" "),
-                _c("li", [_vm._v(_vm._s(item.activity2))]),
-                _vm._v(" "),
-                _c("li", [_vm._v(_vm._s(item.activity3))])
-              ])
-            ])
-          ])
-        ]
-      }),
-      _vm._v(" "),
-      !_vm.showField
-        ? [
-            _c("div", [
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-primary",
-                  staticStyle: { float: "left" },
-                  on: {
-                    click: function($event) {
-                      $event.preventDefault()
-                      _vm.showField = true
-                    }
-                  }
-                },
-                [
-                  _c("span", { staticClass: "glyphicon glyphicon-plus" }),
-                  _vm._v(" Nueva Experiencia\n            ")
-                ]
-              )
-            ])
-          ]
-        : _vm._e(),
-      _vm._v(" "),
-      _c(
-        "p",
-        {
-          staticClass: "text-center alert alert-danger",
-          class: { hidden: _vm.hasError }
-        },
-        [_vm._v("Please fill all fields!")]
-      )
-    ],
-    2
-  )
+        )
+      : _vm._e()
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -48425,7 +48723,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: {
         value: {
-            type: Number,
+            type: null,
             default: 0
         },
         min: {
@@ -48651,6 +48949,48 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: {
@@ -48661,7 +49001,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             items: [], //All work experience of user
             hasError: true, //Validate
             newItem: { 'user': '', 'position': '', 'institution': '', 'finish': '', 'description': '' },
-            showField: false
+            showField: false,
+            showModal: false,
+            editItem: { 'user': '', 'position': '', 'institution': '', 'finish': '', 'description': '' }
         };
     },
     mounted: function mounted() {
@@ -48686,7 +49028,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 });
             }
         },
-        cancelLng: function cancelLng() {
+        cancelEducation: function cancelEducation() {
             this.showField = false;
             this.newItem.user = '';
             this.newItem.position = '';
@@ -48704,6 +49046,35 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 _this.items = response.data.education;
                 console.log(_this.items);
             });
+        },
+        setVal: function setVal(item) {
+            this.editItem = item;
+        },
+        editEducation: function editEducation() {
+            var _this2 = this;
+
+            var position = document.getElementById('eE_position');
+            var institucion = document.getElementById('eE_institution');
+            var finish = document.getElementById('eE_finish');
+            var description = document.getElementById('eE_description');
+            if (position.value == "") this.editItem.position = "No Definido";else this.editItem.position = position.value;
+
+            if (finish.value == "") this.editItem.finish = "No Definido";else this.editItem.finish = finish.value;
+
+            if (description.value == "") this.editItem.description = "No Definido";else this.editItem.description = description.value;
+
+            axios.post('/updateEducation', this.editItem).then(function (response) {
+                _this2.getVueItems();
+                _this2.showModal = false;
+            });
+        },
+        deleteEducation: function deleteEducation(item) {
+            var _this3 = this;
+
+            axios.post('/deleteEducation', item).then(function (response) {
+                _this3.getVueItems();
+                _this3.showModal = false;
+            });
         }
     }
 });
@@ -48716,250 +49087,400 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "row" },
-    [
-      _vm.showField
-        ? [
-            _vm._m(0),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "position" } }, [
-                _vm._v("Posición que desarrolló:")
+  return _c("div", [
+    _c(
+      "div",
+      { staticClass: "row" },
+      [
+        _vm.showField
+          ? [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "position" } }, [
+                  _vm._v("Posición que desarrolló:")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.newItem.position,
+                      expression: "newItem.position"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "text",
+                    id: "position",
+                    name: "position",
+                    required: "",
+                    placeholder: "Ej. Licenciatura en ..."
+                  },
+                  domProps: { value: _vm.newItem.position },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.newItem, "position", $event.target.value)
+                    }
+                  }
+                })
               ]),
               _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.newItem.position,
-                    expression: "newItem.position"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: {
-                  type: "text",
-                  id: "position",
-                  name: "position",
-                  required: "",
-                  placeholder: "Ej. Licenciatura en ..."
-                },
-                domProps: { value: _vm.newItem.position },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "institution" } }, [
+                  _vm._v("Institución donde desarrolló:")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.newItem.institution,
+                      expression: "newItem.institution"
                     }
-                    _vm.$set(_vm.newItem, "position", $event.target.value)
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "text",
+                    id: "institution",
+                    name: "institution",
+                    required: "",
+                    placeholder: "Ej. UANL"
+                  },
+                  domProps: { value: _vm.newItem.institution },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.newItem, "institution", $event.target.value)
+                    }
                   }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "institution" } }, [
-                _vm._v("Institución donde desarrolló:")
+                })
               ]),
               _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.newItem.institution,
-                    expression: "newItem.institution"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: {
-                  type: "text",
-                  id: "institution",
-                  name: "institution",
-                  required: "",
-                  placeholder: "Ej. UANL"
-                },
-                domProps: { value: _vm.newItem.institution },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "finish" } }, [
+                  _vm._v("Período de tiempo:")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.newItem.finish,
+                      expression: "newItem.finish"
                     }
-                    _vm.$set(_vm.newItem, "institution", $event.target.value)
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "text",
+                    id: "finish",
+                    name: "finish",
+                    required: "",
+                    placeholder: "Ej. 2007 - 2013"
+                  },
+                  domProps: { value: _vm.newItem.finish },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.newItem, "finish", $event.target.value)
+                    }
                   }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "finish" } }, [
-                _vm._v("Período de tiempo:")
+                })
               ]),
               _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.newItem.finish,
-                    expression: "newItem.finish"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: {
-                  type: "text",
-                  id: "finish",
-                  name: "finish",
-                  required: "",
-                  placeholder: "Ej. 2007 - 2013"
-                },
-                domProps: { value: _vm.newItem.finish },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "description" } }, [
+                  _vm._v(
+                    "Descripción general de la institucion y sus asignaturas:"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.newItem.description,
+                      expression: "newItem.description"
                     }
-                    _vm.$set(_vm.newItem, "finish", $event.target.value)
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    rows: "5",
+                    id: "description",
+                    name: "description",
+                    required: "",
+                    placeholder:
+                      "Ej. La carrera cuenta con un giro para que los estudiantes sean capaces de crear secuencias de codigo para soluciones empresariales."
+                  },
+                  domProps: { value: _vm.newItem.description },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.newItem, "description", $event.target.value)
+                    }
                   }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "description" } }, [
-                _vm._v(
-                  "Descripción general de la institucion y sus asignaturas:"
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    staticStyle: { float: "left" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.createItem()
+                      }
+                    }
+                  },
+                  [
+                    _c("span", { staticClass: "glyphicon-plus" }),
+                    _vm._v(" ADD\n                ")
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    staticStyle: { float: "left" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.cancelEducation()
+                      }
+                    }
+                  },
+                  [
+                    _c("span", { staticClass: "glyphicon-plus" }),
+                    _vm._v(" Cancelar\n                ")
+                  ]
                 )
+              ])
+            ]
+          : _vm._e(),
+        _vm._v(" "),
+        _vm._l(_vm.items, function(item) {
+          return [
+            _c("div", { staticClass: "col-sm-12 col-md-9" }, [
+              _c("div", { staticClass: "education margin-b-50" }, [
+                _c("h4", [_c("b", [_vm._v(_vm._s(item.position))])]),
+                _vm._v(" "),
+                _c("h5", { staticClass: "font-yellow" }, [
+                  _c("b", [_vm._v(_vm._s(item.institution))])
+                ]),
+                _vm._v(" "),
+                _c("h6", { staticClass: "font-lite-black margin-t-10" }, [
+                  _vm._v(_vm._s(item.finish))
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "margin-tb-30" }, [
+                  _vm._v(_vm._s(item.description))
+                ])
               ]),
               _vm._v(" "),
-              _c("textarea", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.newItem.description,
-                    expression: "newItem.description"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: {
-                  rows: "5",
-                  id: "description",
-                  name: "description",
-                  required: "",
-                  placeholder:
-                    "Ej. La carrera cuenta con un giro para que los estudiantes sean capaces de crear secuencias de codigo para soluciones empresariales."
-                },
-                domProps: { value: _vm.newItem.description },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.newItem, "description", $event.target.value)
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", [
               _c(
-                "button",
+                "div",
                 {
-                  staticClass: "btn btn-primary",
-                  staticStyle: { float: "left" },
+                  staticClass: "btn btn-info",
+                  attrs: { id: "Ed_show-modal" },
+                  on: {
+                    click: function($event) {
+                      _vm.showModal = true
+                      _vm.setVal(item)
+                    }
+                  }
+                },
+                [_c("span", { staticClass: "lnr lnr-pencil" })]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "btn btn-danger",
                   on: {
                     click: function($event) {
                       $event.preventDefault()
-                      return _vm.createItem()
+                      return _vm.deleteEducation(item)
                     }
                   }
                 },
-                [
-                  _c("span", { staticClass: "glyphicon glyphicon-plus" }),
-                  _vm._v(" ADD\n            ")
-                ]
+                [_c("span", { staticClass: "lnr lnr-trash" })]
+              )
+            ])
+          ]
+        }),
+        _vm._v(" "),
+        !_vm.showField
+          ? [
+              _c("div", [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    staticStyle: { float: "left" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        _vm.showField = true
+                      }
+                    }
+                  },
+                  [
+                    _c("span", { staticClass: "glyphicon-plus" }),
+                    _vm._v(" Nuevo nivel de estudios\n                ")
+                  ]
+                )
+              ])
+            ]
+          : _vm._e(),
+        _vm._v(" "),
+        _c(
+          "p",
+          {
+            staticClass: "text-center alert alert-danger",
+            class: { hidden: _vm.hasError }
+          },
+          [_vm._v("Please fill all fields!")]
+        )
+      ],
+      2
+    ),
+    _vm._v(" "),
+    _vm.showModal
+      ? _c(
+          "div",
+          {
+            staticClass: "row",
+            on: {
+              close: function($event) {
+                _vm.showModal = false
+              }
+            }
+          },
+          [
+            _c("h3", { attrs: { slot: "header" }, slot: "header" }, [
+              _vm._v("Editar Dependencia")
+            ]),
+            _vm._v(" "),
+            _c("div", { attrs: { slot: "body" }, slot: "body" }, [
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "position" } }, [
+                  _vm._v("Posición que desarrolló:")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "text",
+                    id: "eE_position",
+                    name: "position",
+                    required: ""
+                  },
+                  domProps: { value: this.editItem.position }
+                })
+              ]),
+              _vm._v(" "),
+              _c("label", [
+                _vm._v(
+                  "Nota: El nombre de la institucion no se puede cambiar, de ser asi favor de eliminar y volver a redactar todo."
+                )
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "form-control",
+                attrs: {
+                  type: "hidden",
+                  id: "eE_institution",
+                  name: "institution"
+                },
+                domProps: { value: this.editItem.institution }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "finish" } }, [
+                  _vm._v("Período de tiempo:")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "text",
+                    id: "eE_finish",
+                    name: "finish",
+                    required: ""
+                  },
+                  domProps: { value: this.editItem.finish }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "description" } }, [
+                  _vm._v(
+                    "Descripción general de la institucion y sus asignaturas::"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("textarea", {
+                  staticClass: "form-control",
+                  attrs: {
+                    rows: "5",
+                    id: "eE_description",
+                    name: "description",
+                    required: ""
+                  },
+                  domProps: { value: this.editItem.description }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { attrs: { slot: "footer" }, slot: "footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-default",
+                  on: {
+                    click: function($event) {
+                      _vm.showModal = false
+                      _vm.editItem = {}
+                    }
+                  }
+                },
+                [_vm._v("\n                Cancel\n            ")]
               ),
               _vm._v(" "),
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-primary",
-                  staticStyle: { float: "left" },
+                  staticClass: "btn btn-info",
                   on: {
                     click: function($event) {
-                      $event.preventDefault()
-                      return _vm.cancelLng()
+                      return _vm.editEducation()
                     }
                   }
                 },
-                [
-                  _c("span", { staticClass: "glyphicon glyphicon-plus" }),
-                  _vm._v(" Cancelar\n            ")
-                ]
+                [_vm._v("\n                Update\n            ")]
               )
             ])
           ]
-        : _vm._e(),
-      _vm._v(" "),
-      _vm._l(_vm.items, function(item) {
-        return [
-          _c("div", { staticClass: "col-sm-12 col-md-9" }, [
-            _c("div", { staticClass: "education margin-b-50" }, [
-              _c("h4", [_c("b", [_vm._v(_vm._s(item.position))])]),
-              _vm._v(" "),
-              _c("h5", { staticClass: "font-yellow" }, [
-                _c("b", [_vm._v(_vm._s(item.institution))])
-              ]),
-              _vm._v(" "),
-              _c("h6", { staticClass: "font-lite-black margin-t-10" }, [
-                _vm._v(_vm._s(item.finish))
-              ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "margin-tb-30" }, [
-                _vm._v(_vm._s(item.description))
-              ])
-            ])
-          ])
-        ]
-      }),
-      _vm._v(" "),
-      !_vm.showField
-        ? [
-            _c("div", [
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-primary",
-                  staticStyle: { float: "left" },
-                  on: {
-                    click: function($event) {
-                      $event.preventDefault()
-                      _vm.showField = true
-                    }
-                  }
-                },
-                [
-                  _c("span", { staticClass: "glyphicon glyphicon-plus" }),
-                  _vm._v(" Nuevo nivel de estudios\n            ")
-                ]
-              )
-            ])
-          ]
-        : _vm._e(),
-      _vm._v(" "),
-      _c(
-        "p",
-        {
-          staticClass: "text-center alert alert-danger",
-          class: { hidden: _vm.hasError }
-        },
-        [_vm._v("Please fill all fields!")]
-      )
-    ],
-    2
-  )
+        )
+      : _vm._e()
+  ])
 }
 var staticRenderFns = [
   function() {

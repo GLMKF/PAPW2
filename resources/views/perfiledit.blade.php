@@ -158,8 +158,7 @@
 		</div><!-- container -->
 	</section><!-- intro-section -->
 	
-	
-	<section class="about-section section">
+	<section id="applng" class="about-section section">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12 col-md-3">
@@ -169,56 +168,15 @@
 					</div>
 				</div><!-- col-sm-3 -->
 				<div class="col-sm-12 col-md-9">
-					<p class="margin-b-50">
-					<textarea style="resize: none;" name="aboutMe" cols="105" rows="7" value="{{ old('aboutMe') }}" placeholder="Diligente, reesponsable y altamente confiable... etc."></textarea>
-					</p>
 
-						<perfil-lng></perfil-lng>
-
-					<div class="row">
-						<div class="col-sm-6 col-md-6 col-lg-3">
-							<div class="radial-prog-area margin-b-30">
-								<div class="line-progress" data-prog-percent=".97">
-									<div></div>
-									<h6 class="progress-title">HTML5 & CSS3</h6>
-								</div>
-							</div><!-- radial-prog-area-->
-						</div><!-- col-sm-6-->
-					
-						<div class="col-sm-6 col-md-6 col-lg-3">
-							<div class="radial-prog-area margin-b-30">
-								<div class="radial-progress" data-prog-percent=".78">
-									<div></div>
-									<h6 class="progress-title">WEB DESIGN</h6>
-								</div>
-							</div><!-- radial-prog-area-->
-						</div><!-- col-sm-6-->
-						
-						<div class="col-sm-6 col-md-6 col-lg-3">
-							<div class="radial-prog-area margin-b-30">
-								<div class="radial-progress" data-prog-percent=".67">
-									<div></div>
-									<h6 class="progress-title">JAVA</h6>
-								</div>
-							</div><!-- radial-prog-area-->
-						</div><!-- col-sm-6-->
-						
-						<div class="col-sm-6 col-md-6 col-lg-3">
-							<div class="radial-prog-area margin-b-50">
-								<div class="radial-progress" data-prog-percent=".97">
-									<div></div>
-									<h6 class="progress-title">PHP</h6>
-								</div>
-							</div><!-- radial-prog-area-->
-						</div><!-- col-sm-6-->
-					
-					</div><!-- row -->
+					<programming-lng :email="'{{$dataUser->email}}'"></programming-lng>
+				
 				</div><!-- col-sm-9 -->
 			</div><!-- row -->
 		</div><!-- container -->
 	</section><!-- about-section -->
 	
-	<section class="experience-section section">
+	<section id="appXperience" class="experience-section section">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12 col-md-3">
@@ -227,37 +185,9 @@
 						<h6 class="font-lite-black"><b>TRABAJOS PREVIOS</b></h6>
 					</div>
 				</div><!-- col-sm-3 -->
-				
 				<div class="col-sm-12 col-md-9">
-					<div class="experience margin-b-50">
-						<h4><b>JUNIOR PROJECT MANAGER</b></h4>
-						<h5 class="font-yellow"><b>DESIGN STUDIO</b></h5>
-						<h6 class="font-lite-black margin-t-10">MARCH 2015 - PRESENT</h6>
-						<p class="margin-tb-30">Duis non volutpat arcu, eu mollis tellus. Sed finibus aliquam neque sit amet sodales. 
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla maximus pellentes que velit, 
-							quis consequat nulla effi citur at. Maecenas sed massa tristique.Duis non volutpat arcu, 
-							eu mollis tellus. Sed finibus aliquam neque sit amet sodales. </p>
-						<ul class="list margin-b-30">
-							<li>Duis non volutpat arcu, eu mollis tellus.</li>
-							<li>Quis consequat nulla effi citur at.</li>
-							<li>Sed finibus aliquam neque sit.</li>
-						</ul>
-					</div><!-- experience -->
-					
-					<div class="experience margin-b-50">
-						<h4><b>WEB MASTER/WEB DEVELOPER</b></h4>
-						<h5 class="font-yellow"><b>DESIGN & WEB STUDIO</b></h5>
-						<h6 class="font-lite-black margin-t-10">APRIL 2014 - FEBRUARY 2015</h6>
-						<p class="margin-tb-30">Duis non volutpat arcu, eu mollis tellus. Sed finibus aliquam neque sit amet sodales. 
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla maximus pellentes que velit, 
-							quis consequat nulla effi citur at. Maecenas sed massa tristique.Duis non volutpat arcu, 
-							eu mollis tellus. Sed finibus aliquam neque sit amet sodales. </p>
-						<ul class="list">
-							<li>Duis non volutpat arcu, eu mollis tellus.</li>
-							<li>Quis consequat nulla effi citur at.</li>
-							<li>Sed finibus aliquam neque sit.</li>
-						</ul>
-					</div><!-- experience -->
+				
+				<work-xperience :email="'{{$dataUser->email}}'"></work-xperience>
 					
 				</div><!-- col-sm-9 -->
 			</div><!-- row -->
@@ -330,8 +260,7 @@
 		</div><!-- container -->
 	</section><!-- portfolio-section -->
 	
-	
-	<section class="education-section section">
+	<section id="appEducation" class="education-section section">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12 col-md-3">
@@ -340,40 +269,8 @@
 						<h6 class="font-lite-black"><b>ACADEMIC CAREER</b></h6>
 					</div>
 				</div><!-- col-sm-3 -->
-				
 				<div class="col-sm-12 col-md-9">
-				
-					<div class="education-wrapper">
-						<div class="education margin-b-50">
-							<h4><b>MASTER DEGREE IN SCIENCE</b></h4>
-							<h5 class="font-yellow"><b>UCLA - SCIENCE AND ENGINEERING</b></h5>
-							<h6 class="font-lite-black margin-t-10">GRADUATED IN MAY 2010(2 YEARS)</h6>
-							<p class="margin-tb-30">Duis non volutpat arcu, eu mollis tellus. Sed finibus aliquam neque sit amet sodales. 
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla maximus pellentes que velit, 
-							quis consequat nulla effi citur at. Maecenas sed massa tristique.Duis non volutpat arcu, 
-							eu mollis tellus. Sed finibus aliquam neque sit amet sodales. </p>
-						</div><!-- education -->
-						
-						<div class="education margin-b-50">
-							<h4><b>COURSE ON COMPUTER SCIENCE</b></h4>
-							<h5 class="font-yellow"><b>NEW YORK PUBLIC UNIVERSITY</b></h5>
-							<h6 class="font-lite-black margin-t-10">GRADUATED IN MAY 2009(6 MONTHS)</h6>
-							<p class="margin-tb-30">Duis non volutpat arcu, eu mollis tellus. Sed finibus aliquam neque sit amet sodales. 
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla maximus pellentes que velit, 
-							quis consequat nulla effi citur at. Maecenas sed massa tristique.Duis non volutpat arcu, 
-							eu mollis tellus. Sed finibus aliquam neque sit amet sodales. </p>
-						</div><!-- education -->
-						
-						<div class="education margin-b-50">
-							<h4><b>GRADUATED VALEDICTERIAN</b></h4>
-							<h5 class="font-yellow"><b>PUBLIC COLLEGE</b></h5>
-							<h6 class="font-lite-black margin-t-10">GRADUATED IN MAY 2008(4 YEARS)</h6>
-							<p class="margin-tb-30">Duis non volutpat arcu, eu mollis tellus. Sed finibus aliquam neque sit amet sodales. 
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla maximus pellentes que velit, 
-							quis consequat nulla effi citur at. Maecenas sed massa tristique.Duis non volutpat arcu, 
-							eu mollis tellus. Sed finibus aliquam neque sit amet sodales. </p>
-						</div><!-- education -->
-					</div><!-- education-wrapper -->
+				<education :email="'{{$dataUser->email}}'"></education>
 				</div><!-- col-sm-9 -->
 			</div><!-- row -->
 		</div><!-- container -->

@@ -23,6 +23,11 @@ class CreateUsersTable extends Migration
             $table->string('team1')->nullable();
             $table->string('team2')->nullable();
             $table->string('team3')->nullable();
+            $table->string('urlPinterest')->nullable();
+            $table->string('urlLinkedin')->nullable();
+            $table->string('urlInstagram')->nullable();
+            $table->string('urlFacebook')->nullable();
+            $table->string('urlTwitter')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

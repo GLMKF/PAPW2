@@ -28,10 +28,10 @@
                 </div>
                 <div>
                     <button class="btn btn-primary" @click.prevent="createItem()" style="float:left;">
-                        <span class="glyphicon glyphicon-plus"></span> ADD
+                        <span class="glyphicon-plus"></span> ADD
                     </button>
                     <button class="btn btn-primary" @click.prevent="cancelLng()" style="float:left;">
-                        <span class="glyphicon glyphicon-plus"></span> Cancelar
+                        <span class="glyphicon-plus"></span> Cancelar
                     </button>
                 </div>
             </template>
@@ -49,7 +49,7 @@
             <template v-if="!showField">
                 <div>
                     <button @click.prevent="showField=true" class="btn btn-primary" style="float:left;">
-                        <span class="glyphicon glyphicon-plus"></span> Nuevo
+                        <span class="glyphicon-plus"></span> Nuevo
                     </button>
                 </div>
             </template>
@@ -57,7 +57,7 @@
                 v-bind:class="{ hidden: hasError }">Por favor llene los campos!</p>
         </div>
         <div class="row" v-if="showModal" @close="showModal=false">
-            <h3 slot="header">Edit Item</h3>
+            <h3 slot="header">Editar Lenguaje de Programacion</h3>
             <div slot="body">
                 Lenguaje: {{ this.editItem.language }}
                 Profession: <input type="number" class="form-control" id="e_percent" name="percent"
@@ -66,12 +66,12 @@
             </div>
             <div slot="footer">
                 <button class="btn btn-default" @click="showModal = false; editItem={};">
-                Cancel
-            </button>
-            
-            <button class="btn btn-info" @click="editLng()">
-                Update
-            </button>
+                    Cancel
+                </button>
+                
+                <button class="btn btn-info" @click="editLng()">
+                    Update
+                </button>
             </div>
         </div>
     </div>

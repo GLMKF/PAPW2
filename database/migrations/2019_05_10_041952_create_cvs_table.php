@@ -23,14 +23,8 @@ class CreateCvsTable extends Migration
             $table->string('addressInfo');
             $table->string('cellphone')->nullable();
             $table->string('cellphoneInfo');
+            $table->string('emailInfo');
             $table->string('aboutMe')->nullable();
-            $table->integer('languages')->nullable();
-            $table->string('workExperience');
-            $table->string('workExperience_jobs');
-            $table->string('portfolio');
-            $table->string('portfolio_sections');
-            $table->string('education')->nullable();
-            $table->string('education_categories');
             $table->timestamps();
         });
     }

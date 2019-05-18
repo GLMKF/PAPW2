@@ -145,8 +145,7 @@ class AdminController extends Controller
      */
     public function getProfiledit()
     {
-        $dataUser = DB::table('users')->get();
-    
+        $dataUser = Auth::user();            
         return view('perfiledit', ['dataUser' => $dataUser]);
     }
 
@@ -281,22 +280,22 @@ class AdminController extends Controller
     public function GetWorkXperience(Request $request) {
         $email=$request->get('email');
         $workXp = DB::select('select user, position, institution, finish, description, activity1, activity2, activity3 from experience_jobs
-                                where user = ?', 
-                                [$email]);
+            where user = ?', 
+            [$email]);
         return response()->json(array('work'=>$workXp),200);
     }
 
-    public function UpdateProgrammingLng(Request $request) {
-        DB::table('programing_lngs')
+    public function UpdateWorkXperience(Request $request) {
+        DB::table('experience_jobs')
             ->where('user',$request['user'])
-            ->where('language',$request['language'])
-            ->update(['percent' => $request['percent']]);
+            ->where('institution',$request['institution'])
+            ->update(['position' => $request['position'],'finish' => $request['finish'],'description' => $request['description'],'activity1' => $request['activity1'],'activity2' => $request['activity2'],'activity3' => $request['activity3']]);
     }
 
-    public function DeleteProgrammingLng(Request $request) {
-        DB::table('programing_lngs')
+    public function DeleteWorkXperience(Request $request) {
+        DB::table('experience_jobs')
             ->where('user',$request['user'])
-            ->where('language',$request['language'])
+            ->where('institution',$request['institution'])
             ->delete();
     }
 
@@ -321,17 +320,17 @@ class AdminController extends Controller
         return response()->json(array('education'=>$education),200);
     }
 
-    public function UpdateProgrammingLng(Request $request) {
-        DB::table('programing_lngs')
+    public function UpdateEducation(Request $request) {
+        DB::table('education')
             ->where('user',$request['user'])
-            ->where('language',$request['language'])
-            ->update(['percent' => $request['percent']]);
+            ->where('institution',$request['institution'])
+            ->update(['position' => $request['position'],'finish' => $request['finish'],'description' => $request['description']]);
     }
 
-    public function DeleteProgrammingLng(Request $request) {
-        DB::table('programing_lngs')
+    public function DeleteEducation(Request $request) {
+        DB::table('education')
             ->where('user',$request['user'])
-            ->where('language',$request['language'])
+            ->where('institution',$request['institution'])
             ->delete();
     }
 }

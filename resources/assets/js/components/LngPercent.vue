@@ -11,7 +11,7 @@
     export default {
         props: {
             value: {
-            type: Number,
+            type: null,
             default: 0,
             },
             min: {
